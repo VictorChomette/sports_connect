@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2021_11_22_140855) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "field_types", default: [], array: true
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "users", force: :cascade do |t|
