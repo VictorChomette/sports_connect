@@ -11,8 +11,8 @@ class Field < ApplicationRecord
     closed: 1,
     work_in_progress: 2
   }, _prefix: true
-#ajout d'une colonne adresse dans laquelle doit etre stoqué l'adresse en question
-    geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
 
+  #ajout d'une colonne adresse dans laquelle doit etre stoqué l'adresse en question
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
