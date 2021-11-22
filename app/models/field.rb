@@ -5,10 +5,10 @@ class Field < ApplicationRecord
     indoor: 0,
     outdoor: 1,
     indoor_outdoor: 2
-  }
+  }, _prefix: true
   enum status: {
     open: 0,
     closed: 1,
     work_in_progress: 2
-  }
+  }, _prefix: true
 end
