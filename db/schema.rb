@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_141126) do
+ActiveRecord::Schema.define(version: 2021_11_22_164516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorite_sports", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "sport_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sport_id"], name: "index_favorite_sports_on_sport_id"
+    t.index ["user_id"], name: "index_favorite_sports_on_user_id"
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -24,6 +33,15 @@ ActiveRecord::Schema.define(version: 2021_11_22_141126) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "field_sports", force: :cascade do |t|
+    t.bigint "field_id", null: false
+    t.bigint "sport_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["field_id"], name: "index_field_sports_on_field_id"
+    t.index ["sport_id"], name: "index_field_sports_on_sport_id"
+  end
+
   create_table "fields", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -31,9 +49,14 @@ ActiveRecord::Schema.define(version: 2021_11_22_141126) do
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "field_types", default: [], array: true
     t.float "latitude"
     t.float "longitude"
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,11 +69,14 @@ ActiveRecord::Schema.define(version: 2021_11_22_141126) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
     t.integer "age"
-    t.text "favorite_sports", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorite_sports", "sports"
+  add_foreign_key "favorite_sports", "users"
   add_foreign_key "favorites", "fields"
   add_foreign_key "favorites", "users"
+  add_foreign_key "field_sports", "fields"
+  add_foreign_key "field_sports", "sports"
 end
