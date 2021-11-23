@@ -1,6 +1,7 @@
 class FieldsController < ApplicationController
   def index
-    @fields = Field.all
+    # @fields = Field.all
+    @fields = Field.page(params[:page]).per(5)
     #affiche tout les terrains
     #affiche tout les markers sur la map
     session[:address] = params[:query][:localisation]
