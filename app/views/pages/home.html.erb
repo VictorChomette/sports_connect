@@ -5,11 +5,11 @@
         <h1><strong>Today i play ...</strong></h1>
         <h2>Sports Connect shows you every available fields near you, and how many players by time</h2>
         <%= simple_form_for :query, url: fields_path, method: :get do |f| %>
-          <div class="inner-banner d-flex">
-              <%= f.input :sport, as: :select, collection: ["Sports", "Football", "Basketball","Handball","Tennis","Hockey"],
-              label: false, default: [0] %>
-              <%= f.text_field :localisation, class: "form-control", placeholder: 'Ou?'%>
-              <%= f.submit "Search !", class: "btn btn-bluefonce mt-0 w-33" %>
+          <div class="inner-banner">
+              <%# Création d'une search bar options_for_select va chercher la variable @sports dans le page controller %>
+              <%= f.select :sport, options_for_select(@sports), label: false, class: "search-bar", include_blank: "Select a sport" %>
+              <%= f.text_field :localisation, class: "form-control search-bar", placeholder: 'Ou?'%>
+              <%= f.submit "Search !", class: "btn-bluefonce search-barre" %>
           </div>
         <% end %>
       </div>
