@@ -20,6 +20,14 @@
             <h2><%= link_to field.name, "/", class: 'text-decoration-none text-black'%></h2>
             <p><%= field.description %></p>
             <p><%= field.address %></p>
+            <%# Bouton favori et delete pour les fields %>
+            <% if current_user.fields.uniq.include? field %>
+            <%= link_to "Delete from favorite", field_favorite_path(field_id: field, id: current_user.favorites.find_by(field_id: field.id).id), method: :delete %>
+            <% else %>
+              <%= simple_form_for [field, Favorite.new] do |f| %>
+              <%= f.submit 'Add to Favorite'%>
+              <%  end %>
+            <% end %>
           </div>
           <p class="card-field-user avatar-bordered"> <strong>Rating here</strong></p>
         </div>
