@@ -4,7 +4,9 @@ class FieldsController < ApplicationController
     @fields = Field.page(params[:page]).per(5)
     #affiche tout les terrains
     #affiche tout les markers sur la map
-    session[:address] = params[:query][:localisation]
+    unless !session[:address].empty?
+      session[:address] = params[:query][:localisation]
+    end
     @markers = @fields.geocoded.map do |field|
       {
         lng: field.longitude,
