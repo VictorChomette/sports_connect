@@ -15,6 +15,7 @@ class FieldsController < ApplicationController
   def show
     @field = Field.find(params[:id])
     #trouve et affiche un terrain selectionné dans la show avec ses parametres
+
     authorize @field
     #ajout de markers sur la map prenant la long et lat.Une info window rend l'adresse du user
     # et du terrain.
