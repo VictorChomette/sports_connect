@@ -3,5 +3,9 @@ class FieldsController < ApplicationController
     @fields = Field.all
   end
 
+  def show
+    @fields = Fields.find(params[:id])
+  end
+
 
 end
