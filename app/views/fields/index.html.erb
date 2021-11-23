@@ -1,49 +1,52 @@
-<div class="d-flex my-4 p-5 flex-column shadow-lg p-3 ">
-  <p>XX résultats</p>
-  <h1>Terrains de XXX vers XXX</h1>
+<div class="d-flex">
+  <div class="p-4 shadow-lg p-3 w-50">
+    <p>XX résultats</p>
+    <h2>Terrains de {query sport_type}</h2>
+    <h2>vers {query address}</h2>
   <%# Filter buttons and order dropdown %>
-  <div class="d-flex mt-3 align-items-center">
-    <div class="me-3">
-      <%= link_to "Indoor/Outdoor", "#", class: "btn btn-ghost mr-2" %>
-      <%= link_to "Public/Private", "#", class: "btn btn-ghost mx-2" %>
-      <%= link_to "Rating", "#", class: "btn btn-ghost ml-2" %>
+    <div class="d-flex mt-3 align-items-center">
+      <div class="me-3">
+        <%= link_to "Indoor/Outdoor", "#", class: "btn btn-ghost mr-2" %>
+        <%= link_to "Public/Private", "#", class: "btn btn-ghost mx-2" %>
+        <%= link_to "Rating", "#", class: "btn btn-ghost ml-2" %>
+      </div>
+      <span>Par meilleures notes</span>
     </div>
-    <span>Par meilleures notes</span>
-  </div>
   <%# Iteration over the fields, and cards %>
-  <div>
-    <% @fields.each do |field| %>
-      <div class="card-field my-3">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <div class="card-field-infos">
-          <div>
-            <h2><%= link_to field.name, "/", class: 'text-decoration-none text-black'%></h2>
-            <p><%= field.description %></p>
-            <p><%= field.address %></p>
+    <div>
+      <% @fields.each do |field| %>
+        <div class="card-field my-3">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <div class="card-field-infos">
+            <div>
+              <h2><%= link_to field.name, "/", class: 'text-decoration-none text-black'%></h2>
+              <p><%= field.description %></p>
+              <p><%= field.address %></p>
+            </div>
+            <p class="card-field-user avatar-bordered"> <strong>Rating here</strong></p>
           </div>
-          <p class="card-field-user avatar-bordered"> <strong>Rating here</strong></p>
+          <div class="d-flex justify-content-between px-3 pb-2">
+            <%= link_to "Find out more", fields_path(field), class:"btn btn-primary text-white" %>
+            <h2 class="card-field-pricing" >
+              <% if field.status_open? %>
+                <span class="badge rounded-pill bg-success"><%= field.status.capitalize %></span>
+              <% elsif field.status_closed? %>
+                <span class="badge rounded-pill bg-danger"><%= field.status.capitalize %></span>
+              <% else %>
+                <span class="badge rounded-pill bg-warning text-dark"><%= field.status.capitalize %></span>
+              <% end %>
+            </h2>
+          </div>
         </div>
-        <div class="d-flex justify-content-between px-3 pb-2">
-          <%= link_to "Find out more", "/", class:"btn btn-primary text-white" %>
-          <h2 class="card-field-pricing">
-            <% if field.status_open? %>
-              <span class="badge rounded-pill bg-success"><%= field.status.capitalize %></span>
-            <% elsif field.status_closed? %>
-              <span class="badge rounded-pill bg-danger"><%= field.status.capitalize %></span>
-            <% else %>
-              <span class="badge rounded-pill bg-warning text-dark"><%= field.status.capitalize %></span>
-            <% end %>
-          </h2>
-        </div>
-      </div>
-    <% end %>
-    <div class="container my-5 shadow p-3">
-      <div class="rounded", style="width: 100%; height: 600px;"
-        data-controller="mapbox"
-        data-mapbox-markers-value="<%= @markers.to_json %>"
-        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+      <% end %>
     </div>
   </div>
+  <div class="h-100 sticky-top w-50">
+    <div class="rounded", style="width: 100%; height: 100vh;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  <%# </div> %>
 </div>
-<%= image_tag("blob_index.png") %>
+<%# <%= image_tag("blob_index.png") %>
