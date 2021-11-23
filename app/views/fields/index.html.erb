@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="d-flex blob">
   <div class="p-4 shadow-lg p-3 w-50">
     <p>XX résultats</p>
     <h2>Terrains de {query sport_type}</h2>
@@ -40,6 +40,7 @@
         </div>
       <% end %>
     </div>
+    <%= paginate @fields %>
   </div>
   <div class="h-100 sticky-top w-50">
     <div class="rounded", style="width: 100%; height: 100vh;"
@@ -49,4 +50,6 @@
     </div>
   <%# </div> %>
 </div>
+
+
 <%# <%= image_tag("blob_index.png") %>
