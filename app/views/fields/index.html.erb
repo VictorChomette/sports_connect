@@ -1,0 +1,14 @@
+<div class="d-flex my-4 p-5 flex-column shadow-lg p-3 ">
+    <p>XX résultats</p>
+    <h1>Terrains de basket vers</h1>
+    <% @fields.each do |field|  %>
+      <div class="card-product my-3">
+        <img src="" alt="">
+          <div class="card-product-infos">
+            <h2><%= link_to field.name, field_path(field), class: 'text-decoration-none text-black'%></h2>
+            <p><%= field.description %></p>
+            <p><%= field.address %></p>
+          </div>
+      </div>
+    <% end %>
+  </div>
