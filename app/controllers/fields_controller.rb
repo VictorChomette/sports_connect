@@ -26,14 +26,12 @@ class FieldsController < ApplicationController
       info_window: render_to_string(partial: "info_window_fields", locals: { field: @field }),
       image_url: helpers.asset_url("field.png")
     }]
-
     # @markers = [{
     #   lng: @field.longitude,
     #   lat: @field.latitude,
     #   info_window: render_to_string(partial: "info_window_fields", locals: { field: @field }),
     #   field_type: @field.sports.pluck(:name)
     # }]
-
     unless session[:address].empty?
       latitude = Geocoder.search(session[:address]).first.coordinates[0]
       longitude = Geocoder.search(session[:address]).first.coordinates[1]
