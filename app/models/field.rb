@@ -21,6 +21,8 @@ class Field < ApplicationRecord
   # has_many :presences
   # has_many :favorites
   has_many :field_sports
+
+  has_many :sports, through: :field_sports
   has_many :favorites
 
   validates :address, :status, presence: true
