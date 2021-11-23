@@ -5,7 +5,7 @@ class FieldsController < ApplicationController
   end
 
   def show
-    @fields = Fields.find(params[:id])
+    @fields = Field.find(params[:id])
     #trouve et affiche un terrain selectionné dans la show avec ses parametres
     authorize @field
     @markers = [{
