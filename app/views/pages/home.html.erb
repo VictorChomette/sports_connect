@@ -1,15 +1,18 @@
 <div class="homepage">
   <div class="banner">
     <div class="container d-flex justify-content-between">
-      <div class="w-50">
-        <h1><strong>Today i play ...</strong></h1>
-        <h2>Sports Connect shows you every available fields near you, and how many players by time</h2>
+      <div class="w-75">
+        <div class="w-50">
+          <h1><strong>Today i play ...</strong></h1>
+          <h2>Sports Connect shows you every available fields near you, and how many players by time</h2>
+        </div>
         <%= simple_form_for :query, url: fields_path, method: :get do |f| %>
           <div class="inner-banner">
               <%# Création d'une search bar options_for_select va chercher la variable @sports dans le page controller %>
-              <%= f.select :sport, options_for_select(@sports), label: false, class: "search-bar", include_blank: "Select a sport" %>
+              <%= f.select :sport, options_for_select(@sports), label: false, include_blank: "Select a sport" %>
               <%= f.text_field :localisation, class: "form-control search-bar", placeholder: 'Ou?'%>
-              <%= f.submit "Search !", class: "btn-bluefonce search-barre" %>
+              <%= f.input :perimeter, as: :select,collection: ["5km", "10km", "15km","20km","25km"], label: false, include_blank: "Perimeter " %>
+              <%= f.submit "Search !", class: "btn-bluefonce" %>
           </div>
         <% end %>
       </div>
