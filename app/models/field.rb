@@ -1,16 +1,17 @@
 class Field < ApplicationRecord
   # Les enum pour fixer des valeurs à des chiffres (ici 0,1,2)
   # Ce qui est cool c'est quon peut faire Field.indoor?
-  enum field_types: {
+  enum field_type: {
     indoor: 0,
     outdoor: 1,
     indoor_outdoor: 2
-    }, _prefix: true
+  }, _prefix: true
+
   enum status: {
     open: 0,
     closed: 1,
     work_in_progress: 2
-    }, _prefix: true
+  }, _prefix: true
 
   # ajout d'une colonne adresse dans laquelle doit etre stoqué l'adresse en question
   geocoded_by :address
@@ -20,6 +21,7 @@ class Field < ApplicationRecord
   # has_many :presences
   # has_many :favorites
   has_many :field_sports
+  has_many :favorite
 
   validates :address, :status, presence: true
   validates :name, presence: true, uniqueness: true
