@@ -11,4 +11,12 @@
   width: auto;
   margin-left: auto;
   margin-right: auto;
+  flex-direction: row;
+  display: flex;
+}
+
+.search-bar {
+  padding: 18px 34px;
+  border-radius: 10px;
+  margin: 8px;
 }
