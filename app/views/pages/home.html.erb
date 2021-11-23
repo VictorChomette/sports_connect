@@ -1,2 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="homepage">
+  <div class="banner">
+    <div class="container d-flex justify-content-between">
+      <div class="w-50">
+        <h1><strong>Today i play ...</strong></h1>
+        <h2>Sports Connect shows you every available fields near you, and how many players by time</h2>
+        <%= simple_form_for :query, url: fields_path, method: :get do |f| %>
+          <div class="inner-banner d-flex">
+              <%= f.input :sport, as: :select, collection: ["Sports", "Football", "Basketball","Handball","Tennis","Hockey"],
+              label: false, default: [0] %>
+              <%= f.text_field :localisation, class: "form-control", placeholder: 'Ou?'%>
+              <%= f.submit "Search !", class: "btn btn-bluefonce mt-0 w-33" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="w-25 d-flex align-items-center justify-content-center">
+        <%= image_tag("basketteur.png") %>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <h2>Best fields of month</h2>
+  </div>
+</div>
