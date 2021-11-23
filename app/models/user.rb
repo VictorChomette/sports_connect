@@ -6,7 +6,7 @@ class User < ApplicationRecord
   #un utilisateur peut avoir plusieurs terrains et favoris
   has_many :favorite_fields, through: :favorites, source: :fields
   # @user.favorite_fields ==> tous les fields favoris de ton user
-  has_many :favorite_sports
+  has_many :favorite_sports, dependent: :destroy
   has_many :sports, through: :favorite_sports
 
   validates :age, presence: true
