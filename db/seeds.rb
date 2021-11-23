@@ -56,14 +56,12 @@ FavoriteSport.create!(user: user7, sport: petanque)
 user8 = User.create!(email: "paul@gmail.com", password: "123456", username: "paul_account", age: 35)
 FavoriteSport.create!(user: user8, sport: tennis)
 FavoriteSport.create!(user: user8, sport: basketball)
-FavoriteSport.create!(user: user1, sport: athletisme)
-
+FavoriteSport.create!(user: user8, sport: athletisme)
 
 field1 = Field.create!(name: "Stade Emile Anthoine", address: "2 Av. de Suffren, 75007 Paris", field_types: 2, status: 0, description: "Centre sportif disponible avec une vue incroyable sur la tour Eiffel.")
 FieldSport.create!(field: field1, sport: football)
 FieldSport.create!(field: field1, sport: athletisme)
 FieldSport.create!(field: field1, sport: volleyball)
-
 
 field2 = Field.create!(name: "Parc André-Citroën", address: "2 Rue Cauchy, 75015 Paris", field_types: 1, status: 0, description: "Table de ping-pong disponible en libre service. Possibilité d'effectuer une partie de pétanque aux alentours.")
 FieldSport.create!(field: field2, sport: petanque)
@@ -75,7 +73,6 @@ FieldSport.create!(field: field3, sport: pingpong)
 FieldSport.create!(field: field3, sport: football)
 FieldSport.create!(field: field3, sport: basketball)
 FieldSport.create!(field: field3, sport: athletisme)
-
 
 field4 = Field.create!(name: "City Stade", address: "Esplanade Max Guedj, Rue de la Montagne d'Aulas, 75015 Paris", field_types: 1, status: 0, description: "City-stade en bitume disponible dans le 15eme arrondissement de Paris.")
 FieldSport.create!(field: field4, sport: basketball)
