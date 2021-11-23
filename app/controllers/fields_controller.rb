@@ -6,6 +6,4 @@ class FieldsController < ApplicationController
   def show
     @fields = Fields.find(params[:id])
   end
-
-
 end
