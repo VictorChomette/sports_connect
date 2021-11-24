@@ -2,11 +2,13 @@ class FieldsController < ApplicationController
   def index
     # @fields = Field.all
     @fields = Field.page(params[:page]).per(5)
+
     #affiche tout les terrains
     #affiche tout les markers sur la map
-    unless !session[:address].empty?
-      session[:address] = params[:query][:localisation]
-    end
+    # unless !session[:address].nil?
+    #   session[:address] = params[:query][:localisation]
+    # end
+
     @markers = @fields.geocoded.map do |field|
       {
         lng: field.longitude,
@@ -14,6 +16,10 @@ class FieldsController < ApplicationController
         info_window: render_to_string(partial: "info_window_fields", locals: { field: field }),
         image_url: helpers.asset_url("field.png")
       }
+    end
+
+    if params.dig(:query, :localisation).present?
+      @markers << geocode_location
     end
   end
 
@@ -47,4 +53,20 @@ class FieldsController < ApplicationController
       }
     end
   end
+
+
+    private
+
+    def geocode_location
+      coordinates = Geocoder.search(params.dig(:query, :localisation))
+                            .first.data.dig('features')
+                            .first.dig('geometry', 'coordinates')
+
+      {
+        lat: coordinates.last,
+        lng: coordinates.first,
+        info_window: render_to_string(partial: "info_window"),
+        image_url: helpers.asset_url("user.png")
+      }
+    end
 end
