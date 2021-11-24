@@ -1,49 +1,87 @@
-<div class="d-flex p-5 flex-column shadow-lg p-3 ">
-  <h1><%= @field.name %></h1>
-  <h4><%= @field.address %></h4>
-</div>
-
-<div class="container d-flex my-4 p-5 flex-column shadow-lg p-3 ">
-  <h2>Details:</h2>
-  <p><%= @field.description %></p>
-  <p><strong>Type: </strong><%= @field.field_type %> </p>
-  <p><strong> Status: </strong><%= @field.status %> </p>
-</div>
-
-<hr class="my-5">
-  <div class="row">
-    <div class="col-12 col-sm-6">
-      <h3>Reviews</h3>
-      <% if @field.reviews.empty? %>
-        <small><em class="text-muted">Be the first one to review this list</em></small>
-      <% end %>
-      <% @field.reviews.each do |review| %>
-        <div>
-          <% review.rating.times do %>
-            <i class="fas fa-star star-yellow"></i>
-          <% end %>
-          <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
-          <p class="mb-0"><%= review.comment %></p>
-          <%= link_to "destroy", review_path(review), method: :delete %>
-        </div>
-        <hr>
-      <% end %>
-    </div>
-    <div class="col-12 col-sm-6">
-      <div class="bg-white rounded p-3">
-        <h5>Add your review</h5>
-        <%= simple_form_for [@field, @review] do |f| %>
-          <%= f.input :comment, placeholder: "Add your review here..." %>
-          <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating", input_html: { data: { controller: "jquery-bar-rating" } } %>
-          <%= f.submit class:"btn btn-flat" %>
+<div class="container">
+  <div class="d-flex justify-content-between align-items-start">
+    <div class="d-flex flex-column pt-5 bg-white">
+      <h1><%= @field.name %></h1>
+      <h4><%= @field.address %></h4>
+      <p><%= @field.description %></p>
+      <div class="d-flex">
+        <% if @field.status_open? %>
+          <span class="badge rounded-pill bg-success me-2"><%= @field.status.capitalize %></span>
+        <% elsif @field.status_closed? %>
+          <span class="badge rounded-pill bg-danger me-2"><%= @field.status.capitalize %></span>
+        <% else %>
+          <span class="badge rounded-pill bg-warning text-dark me-2"><%= @field.status.capitalize %></span>
         <% end %>
+        <span class="badge rounded-pill bg-secondary text-white"><%= @field.field_type %></span>
       </div>
     </div>
 
-<div class="container my-5 shadow p-3">
-  <div class="rounded", style="width: 100%; height: 600px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary text-white mt-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Go there!
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for(@presence) do |f| %>
+
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nope...</button>
+            <button type="button" class="btn btn-primary text-white">Go!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <hr class="my-5">
+      <div class="row">
+        <div class="col-12 col-sm-6">
+          <h3>Reviews</h3>
+          <% if @field.reviews.empty? %>
+            <small><em class="text-muted">Be the first one to review this list</em></small>
+          <% end %>
+          <% @field.reviews.each do |review| %>
+            <div>
+              <% review.rating.times do %>
+                <i class="fas fa-star star-yellow"></i>
+              <% end %>
+              <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+              <p class="mb-0"><%= review.comment %></p>
+              <%= link_to "destroy", review_path(review), method: :delete %>
+            </div>
+            <hr>
+          <% end %>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="bg-white rounded">
+            <h3>Add your review</h3>
+            <%= simple_form_for [@field, @review] do |f| %>
+              <%= f.input :comment, placeholder: "Add your review here..." %>
+              <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating", input_html: { data: { controller: "jquery-bar-rating" } } %>
+              <%= f.submit class:"btn btn-flat" %>
+            <% end %>
+          </div>
+        </div>
+  </div>
+
+
+  <div class="container my-5 shadow p-3">
+    <div class="rounded", style="width: 100%; height: 600px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+  <%# on apelle la data depuis le controller mapbox.le marker se place sur les adresses.la clef api est importée depuis mapbox %>
 </div>
-<%# on apelle la data depuis le controller mapbox.le marker se place sur les adresses.la clef api est importée depuis mapbox %>
