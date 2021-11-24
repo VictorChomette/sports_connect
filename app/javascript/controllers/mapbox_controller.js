@@ -8,6 +8,8 @@ export default class extends Controller {
     markers: Array
   }
 
+
+
   connect() {
     mapboxgl.accessToken = this.apiKeyValue;
     //le token deviens la clef api
