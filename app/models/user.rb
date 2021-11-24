@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   #un utilisateur peut avoir plusieurs terrains et favoris
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :fields, through: :favorites
   # @user.favorites ==> tous les fields favoris de ton user
   has_many :favorite_sports, dependent: :destroy
