@@ -29,14 +29,14 @@
             </div>
             <p class="card-field-user avatar-bordered"> <strong>Rating here</strong></p>
           </div>
-          <div class="d-flex justify-content-between px-3 pb-2">
-            <%= link_to "Find out more", field_path(field, query: { localisation: @address }), class:"btn btn-primary text-white" %>
+          <div class="d-flex justify-content-between align-items-center px-3 pb-2">
+            <%= link_to "Find out more", field_path(field, query: { localisation: @address }), class:"btn-find text-white" %>
             <%# Bouton favori et delete pour les fields %>
             <% if current_user.fields.uniq.include? field %>
-            <%= link_to "Delete from favorite", field_favorite_path(field_id: field, id: current_user.favorites.find_by(field_id: field.id).id, source: 'fields'), method: :delete %>
+            <%= link_to "Delete from favorite", field_favorite_path(field_id: field, id: current_user.favorites.find_by(field_id: field.id).id, source: 'fields'), method: :delete, class:'btn-delete' %>
             <% else %>
               <%= simple_form_for [field, Favorite.new] do |f| %>
-              <%= f.submit 'Add to Favorite'%>
+              <%= f.submit 'Add to Favorite', class: 'btn-add'%>
               <%  end %>
             <% end %>
             <h2 class="card-field-pricing" >
