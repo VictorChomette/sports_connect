@@ -29,7 +29,7 @@
             <%= link_to "Find out more", field_path(field, query: { localisation: @address }), class:"btn btn-primary text-white" %>
             <%# Bouton favori et delete pour les fields %>
             <% if current_user.fields.uniq.include? field %>
-            <%= link_to "Delete from favorite", field_favorite_path(field_id: field, id: current_user.favorites.find_by(field_id: field.id).id), method: :delete %>
+            <%= link_to "Delete from favorite", field_favorite_path(field_id: field, id: current_user.favorites.find_by(field_id: field.id).id, source: 'fields'), method: :delete %>
             <% else %>
               <%= simple_form_for [field, Favorite.new] do |f| %>
               <%= f.submit 'Add to Favorite'%>
