@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   resources :fields, only: [:index, :show] do
     resources :favorites, only: [:create, :destroy]
     resources :reviews , only: [:create]
+    resources :presences, only: [:index, :create]
   end
 
   resources :favorites, only: [:index]
   resources :reviews , only: [:destroy]
-
+  resources :presences, only: [:destroy]
 end
