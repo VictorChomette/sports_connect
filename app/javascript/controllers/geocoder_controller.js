@@ -24,4 +24,8 @@ export default class extends Controller {
   _clearInputValue() {
     this.addressTarget.value = "";
   }
+  //empeche de remplir le cache via turbolink
+  disconnect() {
+    this.geocoder.container.remove()
+  }
 }
