@@ -16,7 +16,11 @@
     <div>
       <% @fields.each do |field| %>
         <div class="card-field my-3">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <% if field.photo.attached? %>
+          <div>
+          </div>
+            <%= cl_image_tag field.photo.key %>
+          <% end %>
           <div class="card-field-infos">
             <div>
               <h2><%= link_to field.name, "/", class: 'text-decoration-none text-black'%></h2>
