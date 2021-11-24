@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   end
 
   resources :favorites, only: [:index]
-  resources :reviews , only: [:destroy]
+  resources :reviews, only: [:destroy]
 
 end
