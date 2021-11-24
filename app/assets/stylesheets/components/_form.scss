@@ -1,5 +1,5 @@
 #query_sport {
-    width: 400px;
+    width: 200px;
     padding: 18px 34px;
     background: #f4f4f4;
     border: 1px solid #dcd7d3;
@@ -17,4 +17,30 @@
 
 .query_perimeter {
     margin-bottom: 0 !important;
+}
+
+.mapboxgl-ctrl-geocoder {
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.query_address {
+  margin: 0 !important;
+  display: flex;
+  justify-content: center;
+}
+
+.mapboxgl-ctrl-geocoder--icon-search {
+  display: none;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  padding: 18px 34px;
+  background: #f4f4f4;
+  border: 1px solid #dcd7d3;
+  border-radius: 10px;
+  // position: absolute;
+  height: 62px;
+  // top: -23px;
+  // box-shadow: 0 0 10px 2px rgb(0, 0, 0, 0.1);
 }
