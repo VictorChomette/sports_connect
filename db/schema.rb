@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_094749) do
+ActiveRecord::Schema.define(version: 2021_11_24_112107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(version: 2021_11_24_094749) do
     t.text "description"
   end
 
+  create_table "presences", force: :cascade do |t|
+    t.datetime "date"
+    t.bigint "field_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["field_id"], name: "index_presences_on_field_id"
+    t.index ["user_id"], name: "index_presences_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "comment"
@@ -93,6 +103,8 @@ ActiveRecord::Schema.define(version: 2021_11_24_094749) do
   add_foreign_key "favorites", "users"
   add_foreign_key "field_sports", "fields"
   add_foreign_key "field_sports", "sports"
+  add_foreign_key "presences", "fields"
+  add_foreign_key "presences", "users"
   add_foreign_key "reviews", "fields"
   add_foreign_key "reviews", "users"
 end

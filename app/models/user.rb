@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :fields, through: :favorites
   # @user.favorites ==> tous les fields favoris de ton user
   has_many :favorite_sports, dependent: :destroy
+  has_many :presences, dependent: :destroy
   has_many :sports, through: :favorite_sports
 
   validates :age, presence: true

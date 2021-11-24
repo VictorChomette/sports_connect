@@ -37,6 +37,8 @@ class FieldsController < ApplicationController
     if params.dig(:query, :localisation).present?
       @markers << geocode_location
     end
+
+    @presence = Presence.new
   end
 
   private
