@@ -23,9 +23,17 @@ class Field < ApplicationRecord
   # has_many :favorites
   has_many :field_sports
 
+  has_many :reviews, dependent: :destroy
+
+  has_many :presences, dependent: :destroy
+
   has_many :sports, through: :field_sports
   has_many :favorites
 
   validates :address, :status, presence: true
   validates :name, presence: true, uniqueness: true
+
+  def presences_by_hour
+    self.presences.where("date_trunc('day', date) = ?", Date.today).group("date_trunc('hour', date)").count
+  end
 end

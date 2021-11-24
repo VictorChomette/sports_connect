@@ -23,6 +23,7 @@ class FieldsController < ApplicationController
 
   def show
     @field = Field.find(params[:id])
+    @review = Review.new
     #trouve et affiche un terrain selectionné dans la show avec ses parametres
     # authorize @field
     #ajout de markers sur la map prenant la long et lat.Une info window rend l'adresse du user
@@ -36,6 +37,8 @@ class FieldsController < ApplicationController
     if params.dig(:query, :localisation).present?
       @markers << geocode_location
     end
+
+    @presence = Presence.new
   end
 
   private
