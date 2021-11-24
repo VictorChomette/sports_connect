@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :fields, only: [:index, :show] do
     resources :favorites, only: [:create, :destroy]
   end
+  resources :favorites, only: [:index]
 end

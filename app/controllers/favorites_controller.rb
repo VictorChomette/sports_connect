@@ -1,4 +1,8 @@
 class FavoritesController < ApplicationController
+  def index
+    @fields = current_user.fields
+  end
+
   def create
     @field = Field.find(params[:field_id])
     favorite = @field.favorites.new(user_id: current_user.id)
