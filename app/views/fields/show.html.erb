@@ -25,12 +25,13 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <h5 class="modal-title" id="staticBackdropLabel">Find a slot that fits you</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <%= simple_form_for(@presence) do |f| %>
-
+            <%= simple_form_for :search, method: "get" do |f| %>
+              <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+              <%= f.button :submit, "Go", class: "btn btn-primary" %>
             <% end %>
           </div>
           <div class="modal-footer">

@@ -31,4 +31,8 @@ class Field < ApplicationRecord
 
   validates :address, :status, presence: true
   validates :name, presence: true, uniqueness: true
+
+  def presences_by_hour
+    self.presences.where("date_trunc('day', date) = ?", Date.today).group("date_trunc('hour', date)").count
+  end
 end
