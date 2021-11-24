@@ -10,13 +10,21 @@
           <div class="inner-banner">
               <%# Création d'une search bar options_for_select va chercher la variable @sports dans le page controller %>
               <%= f.select :sport, options_for_select(@sports), label: false, include_blank: "Select a sport" %>
-              <%= f.text_field :localisation, class: "form-control search-bar", placeholder: 'Ou?'%>
+              <%= f.input :address,label: false,
+                          input_html: {
+                            data: {
+                              geocoder_target: "address"
+                            },
+                            class: "d-none"
+                          },
+                          wrapper_html: { class: 'mb-0', data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } },
+                          placeholder: 'Where?'%>
               <%= f.input :perimeter, as: :select,collection: ["5km", "10km", "15km","20km","25km"], label: false, include_blank: "Perimeter " %>
               <%= f.submit "Search !", class: "btn-bluefonce" %>
           </div>
         <% end %>
       </div>
-      <div class="w-25 d-flex align-items-center justify-content-center">
+      <div class="d-flex align-items-center justify-content-center">
         <%= image_tag("basketteur.png") %>
       </div>
     </div>
