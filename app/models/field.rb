@@ -22,7 +22,10 @@ class Field < ApplicationRecord
   # has_many :favorites
   has_many :field_sports
 
+  has_many :reviews, dependent: :destroy
+
   has_many :presences, dependent: :destroy
+
   has_many :sports, through: :field_sports
   has_many :favorites
 

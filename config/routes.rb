@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :favorites, only: [:index]
   resources :reviews , only: [:destroy]
   resources :presences, only: [:index, :destroy]
+
 end
