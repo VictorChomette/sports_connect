@@ -29,8 +29,16 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <%= simple_form_for :search, method: "get" do |f| %>
-              <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= simple_form_for [@field, Presence.new] do |f| %>
+              <%#= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+              <%= f.input :date,
+                          as: :radio_buttons,
+                          collection: @field.presences_by_hour,
+                          label_method: lambda { |item| render 'slot', item: item },
+                          input_html: { class: "tag-selector" },
+                          item_wrapper_class: 'tag-item'
+              %>
+
               <%= f.button :submit, "Go", class: "btn btn-primary" %>
             <% end %>
           </div>

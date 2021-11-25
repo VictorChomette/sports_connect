@@ -34,7 +34,17 @@ class Field < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   def presences_by_hour
-    self.presences.where("date_trunc('day', date) = ?", Date.today).group("date_trunc('hour', date)").count
+    slots = presences.where("date_trunc('day', date) = ?", Date.today)
+                     .group("date_trunc('hour', date)").count
+                     .transform_keys { |key| key.hour }
+
+    hours = (9..18).to_a
+
+    hours.each do |hour|
+      slots[hour] = 0 unless slots.key?(hour)
+    end
+
+    slots.sort.map { |slot| slot.insert(1, slot.first) }
   end
 
   def average_rating
