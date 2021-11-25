@@ -5,7 +5,7 @@
       <%= link_to field_path(presence.field), class: 'card presence-card m-3 text-decoration-none text-black' do %>
         <%# <div class="card m-3" style="width: 30%;"> %>
             <div
-              style="background-image: url(<%= cl_image_path presence.field.photo.key %>)" class="presence-pic">
+              style="background-image: url(<%= cl_image_path presence.field.photos.first.key %>)" class="presence-pic">
             </div>
           <div class="card-body">
             <h4 class="card-title"> <%= presence.field.name %> </h4>
