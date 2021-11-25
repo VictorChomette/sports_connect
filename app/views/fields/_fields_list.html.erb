@@ -1,4 +1,4 @@
-<% fields.each do |field| %>
+<% @fields.each do |field| %>
   <div class="card-field my-3">
     <% if field.photo.attached? %>
     <div>
@@ -8,10 +8,9 @@
     <div class="card-field-infos">
       <div>
         <h2><%= link_to field.name, "/", class: 'text-decoration-none text-black'%></h2>
-        <p><%= field.description %></p>
+        <p> <i class="card-field-user text-center fas fa-star"> <strong> <%= field.average_rating %> <%= field.text_rating %></strong></i> <%= field.description %></p>
         <p><%= field.address %></p>
       </div>
-      <p class="card-field-user avatar-bordered"> <strong>Rating here</strong></p>
     </div>
     <div class="d-flex justify-content-between align-items-center px-3 pb-2">
       <%= link_to "Find out more", field_path(field, query: { localisation: @address }), class:"btn-find text-white" %>
