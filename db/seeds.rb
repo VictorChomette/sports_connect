@@ -72,7 +72,11 @@ field1.photo.attach(io: picturefield111, filename: 'Gymnase Emile Anthoine', con
 field2 = Field.create!(name: "Parc André-Citroën", address: "2 Rue Cauchy, 75015 Paris", field_type: 1, status: 0, description: "Table de ping-pong disponible en libre service. Possibilité d'effectuer une partie de pétanque aux alentours.")
 FieldSport.create!(field: field2, sport: petanque)
 FieldSport.create!(field: field2, sport: pingpong)
-picturefield2 = URI.open('https://www.api-site.paris.fr/equipements/2019/12/13/11/57/46/cb099fa8-d248-40da-b4c5-4527a6dc47fe/Parc_Andre_Citroen-27.jpg')
+begin
+  picturefield2 = URI.open('https://www.api-site.paris.fr/equipements/2019/12/13/11/57/46/cb099fa8-d248-40da-b4c5-4527a6dc47fe/Parc_Andre_Citroen-27.jpg')
+rescue
+
+end
 field2.photo.attach(io: picturefield2, filename: 'Parc André-Citroën', content_type: 'image/png')
 
 field3 = Field.create!(name: "Stade Suzanne Lenglen", address: "4 All. de la Bertelotte, 75015 Paris", field_type: 2, status: 0, description: "Complexe sportif avec une multitude de terrain de football et de tennis ainsi qu'un city permettant de pratiquer du basket. Terrain de tennis couvert et en extérieur avec différent types de surfaces.")
