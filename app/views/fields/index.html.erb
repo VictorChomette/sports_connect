@@ -1,8 +1,16 @@
 <div class="d-flex blob">
   <div class="p-4 shadow-lg p-3 w-50">
     <p> XX résultats</p>
-    <h2>Terrains de <%= params[:query][:sport] %></h2>
-    <h2>vers <%= params[:query][:address] %></h2>
+    <% if params[:query][:sport].empty? %>
+      <h2>Terrains de sport</h2>
+    <% else %>
+      <h2>Terrains de <%= params[:query][:sport] %></h2>
+    <% end %>
+    <% if params[:query][:address].empty? %>
+      <h2>à Paris</h2>
+    <% else %>
+      <h2>vers <%= params[:query][:address] %></h2>
+    <% end %>
   <%# Filter buttons and order dropdown %>
     <div class="d-flex mt-3 align-items-center">
       <div class="me-3">
