@@ -1,14 +1,19 @@
-<div class="container">
+<div class="container p-4">
   <h1>Your presences</h1>
-  <% @presences.each do |presence| %>
-  <div class="card" style="width: 18rem;">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
-    <div class="card-body">
-      <h4 class="card-title"> <%= presence.field.name %> </h4>
-      <p class="card-text"><strong>Expecting you on </strong> <%= presence.date %> </p>
-      <p class="card-text"><strong>at </strong> <%= presence.field.address %> </p>
-      <%= link_to "Field details", field_path(presence.field), class:"btn btn-primary text-white" %>
-    </div>
+  <div class="d-flex flex-wrap align-items-strech">
+    <% @presences.each do |presence| %>
+      <%= link_to field_path(presence.field), class: 'card presence-card m-3 text-decoration-none text-black' do %>
+        <%# <div class="card m-3" style="width: 30%;"> %>
+            <div
+              style="background-image: url(<%= cl_image_path presence.field.photo.key %>)" class="presence-pic">
+            </div>
+          <div class="card-body">
+            <h4 class="card-title"> <%= presence.field.name %> </h4>
+            <p class="card-text"><strong>Expecting you on </strong> <%= presence.date %> </p>
+            <p class="card-text"><strong>at </strong> <%= presence.field.address %> </p>
+          </div>
+        <%# </div> %>
+      <% end %>
+    <% end %>
   </div>
-  <% end %>
 </div>

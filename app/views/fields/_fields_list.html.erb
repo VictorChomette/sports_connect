@@ -1,28 +1,8 @@
 <% @fields.each do |field| %>
   <div class="card-field my-3">
+    <%#= link_to field_path(field) do %>
     <% if field.photo.attached? %>
-    <div>
-    </div>
-      <%= cl_image_tag field.photo.key %>
-    <% end %>
-    <div class="card-field-infos">
-      <div>
-        <h2><%= link_to field.name, "/", class: 'text-decoration-none text-black'%></h2>
-        <p> <i class="card-field-user text-center fas fa-star"> <strong> <%= field.average_rating %> <%= field.text_rating %></strong></i> <%= field.description %></p>
-        <p><%= field.address %></p>
-      </div>
-    </div>
-    <div class="d-flex justify-content-between align-items-center px-3 pb-2">
-      <%= link_to "Find out more", field_path(field, query: { localisation: @address }), class:"btn-find text-white" %>
-      <%# Bouton favori et delete pour les fields %>
-      <% if current_user.fields.uniq.include? field %>
-      <%= link_to "Delete from favorite", field_favorite_path(field_id: field, id: current_user.favorites.find_by(field_id: field.id).id, source: 'fields'), method: :delete, class:'btn-delete' %>
-      <% else %>
-        <%= simple_form_for [field, Favorite.new] do |f| %>
-        <%= f.submit 'Add to Favorite', class: 'btn-add'%>
-        <%  end %>
-      <% end %>
-      <h2 class="card-field-pricing" >
+      <div class="card-field-pricing" >
         <% if field.status_open? %>
           <span class="badge rounded-pill bg-success"><%= field.status.capitalize %></span>
         <% elsif field.status_closed? %>
@@ -30,9 +10,38 @@
         <% else %>
           <span class="badge rounded-pill bg-warning text-dark"><%= field.status.capitalize %></span>
         <% end %>
-      </h2>
-
+      </div>
+      <%= link_to field_path(field) do %>
+        <div style="background-image: url(<%= cl_image_path field.photo.key%>)" class="field-pic"></div>
+      <% end %>
+    <% end %>
+    <div class="card-field-infos">
+      <div>
+        <h2>
+          <%= link_to field_path(field), class: 'text-decoration-none text-black' do %>
+            <%= field.name  %>
+          <% end %>
+        </h2>
+        <p>
+          <i class="card-field-user text-center fas fa-star"></i>
+          <strong> <%= field.average_rating %> <%= field.text_rating %></strong> <%= field.description %></p>
+        <p><%= field.address %></p>
+      </div>
+      <div class="d-flex justify-content-between align-items-center px-3 pb-2">
+        <%#= link_to "Find out more", field_path(field, query: { localisation: @address }), class:"btn-find text-white" %>
+        <%# Bouton favori et delete pour les fields %>
+        <% if current_user.fields.uniq.include? field %>
+          <%= link_to field_favorite_path(field_id: field, id: current_user.favorites.find_by(field_id: field.id).id, source: 'fields'), method: :delete, class:'btn-fav' do %>
+            <i class="fas fa-heart" aria-hidden="true"></i>
+          <% end %>
+        <% else %>
+          <%= simple_form_for [field, Favorite.new] do |f| %>
+            <%= button_tag type: 'submit', class: "btn-fav" do %>
+              <i class="far fa-heart" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>
-<%= paginate fields %>

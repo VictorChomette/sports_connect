@@ -36,13 +36,27 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius:5px ;
+
+  &:hover {
+    .field-pic {
+      background-size: 105%;
+    }
+  }
+
+
+  > a {
+    width: 100%;
+    display: block;
+    .field-pic {
+      height: 200px;
+      width: 100%;
+      background-size: 100%;
+      background-position: center;
+      transition: background-size 0.3s ease;
+    }
+  }
 }
 
-.card-field > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
 
 .card-field h2 {
   font-size: 16px;
@@ -61,16 +75,37 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   position: relative;
   margin-bottom: 10px;
 }
 
  i.card-field-user{  // css de l'étoile ratings
-  color: #FFD3AD;
+  color: #ef6500;
 }
 
 i.card-field-user > strong { // css du texte du ratings
   color: $bluefonce;
   opacity: 1;
+}
+
+.card-field-pricing{
+  position: absolute;
+  margin: 10px;
+  }
+  .badge{
+  padding: 8px;
+
+}
+
+.presence-pic {
+  height: 150px;
+  width: 100%;
+  background-size: cover;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.presence-card {
+  width: 30%;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
 }
