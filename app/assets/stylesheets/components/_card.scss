@@ -36,6 +36,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius:5px ;
+  position: relative;
 
   &:hover {
     .field-pic {
@@ -75,7 +76,7 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  position: relative;
+  // position: relative;
   margin-bottom: 10px;
 }
 
@@ -91,6 +92,7 @@ i.card-field-user > strong { // css du texte du ratings
 .card-field-pricing{
   position: absolute;
   margin: 10px;
+  top: 0px;
   }
   .badge{
   padding: 8px;
