@@ -1,16 +1,16 @@
 <div class="d-flex blob">
 <%# <% raise %>
   <div class="p-4 shadow-lg p-3 w-50">
-    <p> <%= @fields.count %> résultats</p>
-    <% if params[:query][:sport].empty? %>
+    <p> <%= @fields.all.count %> résultats</p>
+    <% if params.dig(:query, :sport).present? %>
+      <h2>Terrains de <%= params.dig(:query, :sport) %></h2>
+    <% else %>
       <h2>Terrains de sport</h2>
-    <% else %>
-      <h2>Terrains de <%= params[:query][:sport] %></h2>
     <% end %>
-    <% if params[:query][:address].empty? %>
-      <h2>à Paris</h2>
+    <% if params.dig(:query, :address).present? %>
+      <h2>vers <%= params.dig(:query, :address) %></h2>
     <% else %>
-      <h2>vers <%= params[:query][:address] %></h2>
+      <h2>à Paris</h2>
     <% end %>
   <%# Filter buttons and order dropdown %>
     <div class="d-flex mt-3 align-items-center">
