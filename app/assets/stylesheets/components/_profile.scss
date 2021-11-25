@@ -1,0 +1,39 @@
+.profile-container {
+  width: 400px;
+  margin: 120px auto 120px;
+  background-color: $saumon;
+  padding: 100px 20px 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  text-align: center;
+  position: relative;
+  // min-height: 67vh;
+
+  .avatar-profile {
+    box-shadow: 0px 0px 0px 7px white;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.profile-information {
+  font-size: 20px;
+  color: $bluesecond;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+.profile-information h2 {
+  font-weight: 600;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+
+.profile-information p {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: grey;
+    margin-bottom: 35px;
+}
