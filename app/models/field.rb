@@ -36,4 +36,20 @@ class Field < ApplicationRecord
   def presences_by_hour
     self.presences.where("date_trunc('day', date) = ?", Date.today).group("date_trunc('hour', date)").count
   end
+
+  def average_rating
+    return nil if reviews.empty?
+
+    reviews.pluck(:rating).sum.fdiv(reviews.count).round(1)
+  end
+
+  def text_rating
+    return if average_rating.nil?
+
+    if average_rating < 3
+      "Not Good"
+    else
+      "Good"
+    end
+  end
 end

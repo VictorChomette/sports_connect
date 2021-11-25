@@ -80,8 +80,13 @@
   margin-bottom: 10px;
 }
 
-.card-field-infos .card-field-user {
-  width: 40px;
+ i.card-field-user{  // css de l'étoile ratings
+  color: #FFD3AD;
+}
+
+i.card-field-user > strong { // css du texte du ratings
+  color: $bluefonce;
+  opacity: 1;
 }
 
 .card-field-pricing{
