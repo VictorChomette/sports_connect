@@ -1,7 +1,7 @@
 <div class="d-flex blob">
 <%# <% raise %>
   <div class="p-4 shadow-lg p-3 w-50">
-    <p> XX résultats</p>
+    <p> <%= @fields.count %> résultats</p>
     <% if params[:query][:sport].empty? %>
       <h2>Terrains de sport</h2>
     <% else %>
