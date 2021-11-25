@@ -26,7 +26,7 @@
       <%= render 'fields_list', fields: @fields %>
     </div>
   </div>
-  <div class="h-100 sticky-top w-50">
+  <div class="h-100 sticky-top w-50" style="z-index: 1;">
     <div class="rounded", style="width: 100%; height: 100vh;"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
