@@ -44,26 +44,11 @@
   margin:8px;
 }
 
-.btn-add{
-  color:black;
-  background-color: white;
-  border-radius: 5px;
-  margin:8px;
-  padding:8px 20px;
-  border:1px solid black;
+.btn-fav{
+  background-color: transparent;
+  border:none;
   text-decoration:none;
-}
-
-.btn-delete{
-  text-decoration: none;
-  color:black;
-  background-color: white;
-  border-radius: 5px;
-  margin:8px;
-  padding:8px 20px;
-  border:1px solid black;
+  i {
+    color: rgb(202, 29, 52);
   }
-  :hover{
-  color:$bluesecond;
-
 }
