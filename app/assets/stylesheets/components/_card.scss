@@ -36,13 +36,27 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius:5px ;
+
+  &:hover {
+    .field-pic {
+      background-size: 105%;
+    }
+  }
+
+
+  > a {
+    width: 100%;
+    display: block;
+    .field-pic {
+      height: 200px;
+      width: 100%;
+      background-size: 100%;
+      background-position: center;
+      transition: background-size 0.3s ease;
+    }
+  }
 }
 
-.card-field > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
 
 .card-field h2 {
   font-size: 16px;
@@ -73,4 +87,13 @@
 i.card-field-user > strong { // css du texte du ratings
   color: $bluefonce;
   opacity: 1;
+}
+
+.card-field-pricing{
+  position: absolute;
+  margin: 10px;
+  }
+  .badge{
+  padding: 8px;
+
 }
