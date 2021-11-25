@@ -1,10 +1,10 @@
 class FieldsController < ApplicationController
-  def index
-    # @fields = Field.all
-    @fields = Field.page(params[:page]).per(5)
+  include Searchable
 
-    #affiche tout les terrains
-    #affiche tout les markers sur la map
+  def index
+    @fields = Field.joins(:sports)
+    search
+    @fields = @fields.page(params[:page]).per(5)
 
     @markers = @fields.geocoded.map do |field|
       {
