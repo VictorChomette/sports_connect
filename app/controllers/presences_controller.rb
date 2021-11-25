@@ -10,6 +10,7 @@ class PresencesController < ApplicationController
     @presence = Presence.new(presence_params)
     @presence.field = @field
     @presence.user = current_user
+
     if @presence.save
       redirect_to presences_path
     else
