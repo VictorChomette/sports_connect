@@ -23,58 +23,7 @@
     </div>
   <%# Iteration over the fields, and cards %>
     <div>
-
-      <% @fields.each do |field| %>
-        <div class="card-field my-3">
-          <%#= link_to field_path(field) do %>
-          <% if field.photo.attached? %>
-            <div class="card-field-pricing" >
-              <% if field.status_open? %>
-                <span class="badge rounded-pill bg-success"><%= field.status.capitalize %></span>
-              <% elsif field.status_closed? %>
-                <span class="badge rounded-pill bg-danger"><%= field.status.capitalize %></span>
-              <% else %>
-                <span class="badge rounded-pill bg-warning text-dark"><%= field.status.capitalize %></span>
-              <% end %>
-            </div>
-            <%= link_to field_path(field) do %>
-              <div style="background-image: url(<%= cl_image_path field.photo.key%>)" class="field-pic">
-
-              </div>
-            <% end %>
-          <% end %>
-          <div class="card-field-infos">
-            <div>
-              <h2>
-                <%= link_to field_path(field), class: 'text-decoration-none text-black' do %>
-                  <%= field.name  %>
-                <% end %>
-              </h2>
-              <p><%= field.description %></p>
-              <p><%= field.address %></p>
-            </div>
-            <p class="card-field-user avatar-bordered"> <strong>Rating here</strong></p>
-          </div>
-          <div class="d-flex justify-content-between align-items-center px-3 pb-2">
-            <%#= link_to "Find out more", field_path(field, query: { localisation: @address }), class:"btn-find text-white" %>
-            <%# Bouton favori et delete pour les fields %>
-            <% if current_user.fields.uniq.include? field %>
-              <%= link_to field_favorite_path(field_id: field, id: current_user.favorites.find_by(field_id: field.id).id, source: 'fields'), method: :delete, class:'btn-fav' do %>
-                <i class="fas fa-heart" aria-hidden="true"></i>
-              <% end %>
-            <% else %>
-              <%= simple_form_for [field, Favorite.new] do |f| %>
-                <%= button_tag type: 'submit', class: "btn-fav" do %>
-                  <i class="far fa-heart" aria-hidden="true"></i>
-                <% end %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-
       <%= render 'fields_list', fields: @fields %>
-
     </div>
   </div>
   <div class="h-100 sticky-top w-50" style="z-index: 1;">
