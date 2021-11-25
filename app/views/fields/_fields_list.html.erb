@@ -5,7 +5,31 @@
 <% @fields.each do |field| %>
         <div class="card-field my-3">
           <%#= link_to field_path(field) do %>
-          <% if field.photo.attached? %>
+          <% if field.photos.count > 0 %>
+          <div id="carousel-field-<%= field.id %>" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <% i = 1 %>
+              <% field.photos.each do |photo| %>
+                  <div class="carousel-item <%= "active" if i == 1 %>">
+                <%= link_to field_path(field) do %>
+                    <div style="background-image: url(<%= cl_image_path photo.key%>); height: 200px;" class="field-pic">
+                    </div>
+                <% end %>
+                    <% i += 1 %>
+                  </div>
+              <% end %>
+            </div>
+            <a class="carousel-control-prev" href="#carousel-field-<%= field.id %>" role="button" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-field-<%= field.id %>" role="button" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          <%# end %>
+          <%# if field.photos.count > 0 %>
             <div class="card-field-pricing" >
               <% if field.status_open? %>
                 <span class="badge rounded-pill bg-success"><%= field.status.capitalize %></span>
@@ -15,11 +39,9 @@
                 <span class="badge rounded-pill bg-warning text-dark"><%= field.status.capitalize %></span>
               <% end %>
             </div>
-            <%= link_to field_path(field) do %>
-              <div style="background-image: url(<%= cl_image_path field.photo.key%>)" class="field-pic">
+              <div style="background-image: url(<%#= cl_image_path field.photo.key%>)" class="field-pic">
 
               </div>
-            <% end %>
           <% end %>
           <div class="card-field-infos">
             <div>
