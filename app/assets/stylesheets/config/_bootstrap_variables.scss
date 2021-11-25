@@ -2,10 +2,10 @@
 // 1. All Bootstrap variables are here => https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
 // 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)
 // 3. You can override them below!
-
-// General style
-$font-family-sans-serif:  $body-font;
-$headings-font-family:    $headers-font;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Economica&display=swap');
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$headings-font-family:    'Economica', sans-serif;
 $body-bg:                 white;
 $font-size-base: 1rem;
 
