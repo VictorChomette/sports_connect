@@ -2,16 +2,10 @@
 <%# <% raise %>
   <div class="p-4 shadow-lg p-3 w-50">
     <p> <%= @fields.all.count %> résultats</p>
-    <% if params.dig(:query, :sport).present? %>
-      <h2>Terrains de <%= params.dig(:query, :sport) %></h2>
-    <% else %>
-      <h2>Terrains de sport</h2>
-    <% end %>
-    <% if params.dig(:query, :address).present? %>
-      <h2>vers <%= params.dig(:query, :address) %></h2>
-    <% else %>
-      <h2>à Paris</h2>
-    <% end %>
+      <h2>Terrains de
+        <span><%= params.dig(:query, :sport).present? ? params.dig(:query, :sport) : "sport" %> </span>
+        <span><%= params.dig(:query, :address).present? ? "à #{params.dig(:query, :address)}" : "à Paris" %></span>
+      </h2>
   <%# Filter buttons and order dropdown %>
     <div class="d-flex mt-3 align-items-center">
       <div class="me-3">
