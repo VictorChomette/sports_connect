@@ -2,7 +2,7 @@ class FieldsController < ApplicationController
   include Searchable
 
   def index
-    @fields = Field.joins(:sports)
+    @fields = Field.includes(:sports)
     search
     @fields = @fields.page(params[:page]).per(5)
 
