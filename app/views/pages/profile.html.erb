@@ -1,5 +1,10 @@
 <div class="profile-container">
-  <img class="avatar-profile" src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg">
+  <%= link_to "edit profile", edit_user_registration_path, class:"btn-find"%>
+  <% if @user.photo.present? %>
+    <%= cl_image_tag @user.photo.key, class:"avatar-profile" %>
+  <%else%>
+    <%= image_tag("keen.jpg", class:"avatar-profile")%>
+    <% end %>
   <div class="profile-information">
     <h2><%= @user.username %></h2>
     <p>Username</p>

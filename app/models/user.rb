@@ -10,7 +10,9 @@ class User < ApplicationRecord
   has_many :favorite_sports, dependent: :destroy
   has_many :presences, dependent: :destroy
   has_many :sports, through: :favorite_sports
+  has_one_attached :photo
   has_many :reviews, dependent: :destroy
+
 
   validates :age, presence: true
   validates :username, presence: true, uniqueness: true
