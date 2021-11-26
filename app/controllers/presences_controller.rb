@@ -18,6 +18,17 @@ class PresencesController < ApplicationController
     end
   end
 
+  def fetch
+    # params[:day]
+    # params[:field_id]
+
+    # @field = Field.find(params[:field_id])
+    # @field.presences_by_hour(....)
+    binding.pry
+
+    # render json: {  }
+  end
+
   private
 
   # def set_field
