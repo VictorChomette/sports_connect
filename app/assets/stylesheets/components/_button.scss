@@ -53,3 +53,16 @@
     color: rgb(202, 29, 52);
   }
 }
+
+.btn-delete {
+  border: grey;
+  padding: 4px;
+  font-weight: bold;
+  background-color: red;
+  text-decoration: none;
+  color: white;
+  border-radius: 10%;
+  &:hover {
+    color: white !important;
+  }
+}
