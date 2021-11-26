@@ -40,10 +40,16 @@
 
   &:hover {
     .field-pic {
-      background-size: 105%;
+      transform: scale(1.05);
     }
   }
 
+.field-pic {
+  margin-left: auto;
+  margin-right: auto;
+  background-size: cover;
+  background-position: bottom;
+}
 
   > a {
     width: 100%;
