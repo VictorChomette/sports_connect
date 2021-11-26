@@ -33,13 +33,15 @@ class Field < ApplicationRecord
   validates :address, :status, presence: true
   validates :name, presence: true, uniqueness: true
 
-  def presences_by_hour
-    slots = presences.where("date_trunc('day', date) = ?", Date.today)
+  def presences_by_hour(params)
+    # params = day=Wed+Nov+24+2021+00%3A00%3A00+GMT%2B0100+%28Central+European+Standard+Time%29&field_id=150
+    # month = params.split('+')[1]
+    day_num = params.split('+')[2]
+    # day = "#{month} #{day_num}"
+    slots = presences.where("date_trunc('day', date) = ?", day_num)
                      .group("date_trunc('hour', date)").count
                      .transform_keys { |key| key.hour }
-
     hours = (9..18).to_a
-
     hours.each do |hour|
       slots[hour] = 0 unless slots.key?(hour)
     end

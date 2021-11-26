@@ -31,14 +31,7 @@
           <div class="modal-body" data-controller="flatpickr" data-flatpickr-field-id-value="<%= @field.id %>">
             <%= simple_form_for [@field, Presence.new] do |f| %>
               <%= f.input :day, as: :string, required: false, input_html: { data: { flatpickr_target: 'input' } } %>
-              <%= f.input :date,
-                          as: :radio_buttons,
-                          collection: @field.presences_by_hour,
-                          label_method: lambda { |item| render 'slot', item: item },
-                          input_html: { class: "tag-selector" },
-                          item_wrapper_class: 'tag-item'
-              %>
-
+              <%= render 'presences_by_hour', field: @field %>
               <%= f.button :submit, "Go", class: "btn btn-primary" %>
             <% end %>
           </div>

@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 import flatpickr from "flatpickr";
 
 export default class extends Controller {
-  static targets = ['input']
+  static targets = ['input', 'slots']
   static values = { fieldId: Number }
 
   connect() {
@@ -12,7 +12,6 @@ export default class extends Controller {
 
   _init_flatpickr () {
     flatpickr(this.inputTarget, {
-      enableTime: true,
       inline: true,
       onChange: this._change.bind(this)
     });
@@ -20,7 +19,10 @@ export default class extends Controller {
 
   async _change(evt) {
     const params = this._params(evt)
-    fetch(`/fetch_presences?${params}`)
+    const response = await fetch(`/fetch_presences?${params}`)
+    const data = await response.json()
+    this.slotsTarget.outerHTML = data.html
+    console.log(params);
   }
 
   _params(evt) {
