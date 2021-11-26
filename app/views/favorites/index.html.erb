@@ -15,7 +15,10 @@
     <div class="d-flex align-items-center justify-content-between flex-wrap">
       <% @fields.each do |field| %>
         <div class="card-field my-3" style="width: 48%;">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <div class="field-pic-div">
+            <div style="background-image: url(<%= cl_image_path field.photos.first.key%>); height: 200px;" class="field-pic">
+            </div>
+          </div>
           <div class="card-field-infos">
             <div>
               <h2><%= link_to field.name, "/", class: 'text-decoration-none text-black'%></h2>
@@ -28,11 +31,9 @@
             <%= link_to "Find out more", field_path(field), class:"btn-find" %>
             <%# Bouton favori et delete pour les fields %>
             <% if current_user.fields.uniq.include? field %>
-            <%= link_to "Delete from favorite", field_favorite_path(field_id: field, id: current_user.favorites.find_by(field_id: field.id).id), method: :delete %>
-            <% else %>
-              <%= simple_form_for [field, Favorite.new] do |f| %>
-              <%= f.submit 'Add to Favorite'%>
-              <%  end %>
+              <%= link_to field_favorite_path(field_id: field, id: current_user.favorites.find_by(field_id: field.id).id, source: 'fields'), method: :delete, class:'btn-fav' do %>
+                <i class="fas fa-heart" aria-hidden="true"></i>
+              <% end %>
             <% end %>
             <h2 class="card-field-pricing" >
               <% if field.status_open? %>

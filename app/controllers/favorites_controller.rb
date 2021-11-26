@@ -22,9 +22,9 @@ class FavoritesController < ApplicationController
       flash[:notice] = "Deleted !"
     end
     if params[:source] == "fields"
-      redirect_to fields_path
-    else
       redirect_to favorites_path
+    else
+      redirect_to fields_path
     end
   end
 end
