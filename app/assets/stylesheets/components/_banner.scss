@@ -1,7 +1,6 @@
 .banner {
-  padding: 150px 0;
   background-color: $saumon;
-  min-height: 60vh;
+  min-height: 83vh;
 }
 
 .inner-banner{
@@ -20,4 +19,17 @@
   padding: 18px 34px;
   border-radius: 10px;
   margin: 8px;
+}
+
+#picture-banner {
+  background-image: url('basketteur.png');
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+
+  p {
+    font-size: 26px;
+    line-height: 34px;
+    margin-top: 15px;
+  }
 }
