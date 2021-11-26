@@ -18,11 +18,9 @@ class PresencesController < ApplicationController
   end
 
   def fetch
-    # day =
-    # params[:day]
-    # params[:field_id]
     @field = Field.find(params[:field_id])
-    render json: { html: render_to_string(partial: 'fields/presences_by_hour', locals: { field: @field }) }
+    date = params.dig(:day).to_date
+    render json: { html: render_to_string(partial: 'fields/presences_by_hour', locals: { field: @field, date: date }) }
   end
 
   private

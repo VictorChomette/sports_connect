@@ -22,7 +22,6 @@ export default class extends Controller {
     const response = await fetch(`/fetch_presences?${params}`)
     const data = await response.json()
     this.slotsTarget.outerHTML = data.html
-    console.log(params);
   }
 
   _params(evt) {
