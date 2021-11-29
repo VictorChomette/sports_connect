@@ -1,5 +1,4 @@
-input,
-button {
+.input-cp{
   position: fixed;
   top: 50%;
   left: 50%;
@@ -11,7 +10,7 @@ button {
   transition: all .5s cubic-bezier(.4, .25, .8, .3);
 }
 
-input {
+.input-cp {
   padding: .25rem 0;
   border: 0;
   border-bottom: 1px solid $bluesecond;
@@ -24,11 +23,11 @@ input {
   transition: all .5s cubic-bezier(.4, .25, .8, .3);
 }
 
-input::selection {
+.input-cp::selection {
   background: $bluesecond;
 }
 
-button,
+.button-cp,
 .signup-button {
   padding: .25em 0;
   border: 0;
@@ -43,8 +42,8 @@ button,
    border-radius: 10px;
 }
 
-input:focus,
-button:focus {
+.input-cp:focus,
+.button-cp:focus {
   opacity: 1;
   transform: translate(-50%, -100%);
   pointer-events: auto;
@@ -52,29 +51,29 @@ button:focus {
   z-index: 10;
 }
 
-input:focus ~ input,
-input:focus ~ button {
+.input-cp:focus ~ .input-cp,
+.input-cp:focus ~ .button-cp {
   transform: translate(-50%, 500%);
   transition: all .5s ease-in;
 }
-input:focus ~ label .label-text {
+.input-cp:focus ~ label .label-text {
   transform: translate(-50%, 300%);
   transition: all .5s ease-in;
 }
-input:focus ~ .tip {
+.input-cp:focus ~ .tip {
   opacity: 1;
 }
-input:focus ~ .signup-button,
-button:focus ~ .signup-button {
+.input-cp:focus ~ .signup-button,
+.button-cp:focus ~ .signup-button {
   opacity: 0;
 }
 
-input:focus + label .label-text {
+.input-cp:focus + label .label-text {
   opacity: 1;
   transform: translate(-50%, -100%);
   transition: all .3s cubic-bezier(.1, .45, .1, .85) .4s;
 }
-input:focus + label .nav-dot:before {
+.input-cp:focus + label .nav-dot:before {
   background:$bluesecond;
   box-shadow: 0 0 0 .15rem white, 0 0 .05rem .26rem $saumon;
 }
@@ -86,7 +85,7 @@ input:focus + label .nav-dot:before {
   transform: translate(-50%, -50%);
   width: 70%;
   opacity: 0;
-  color: #fff;
+  color: black;
   font-size: .875rem;
   font-weight: 300;
   letter-spacing: .125rem;
@@ -123,7 +122,7 @@ input:focus + label .nav-dot:before {
   width: 70vw;
   padding: 3.125rem 0 1.5rem;
   text-transform: uppercase;
-  color: #fff;
+  color:black;
   opacity: 0;
   font-size: 1.125rem;
   font-weight: 300;
