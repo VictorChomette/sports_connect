@@ -105,3 +105,24 @@
   </div>
   <%# on apelle la data depuis le controller mapbox.le marker se place sur les adresses.la clef api est importée depuis mapbox %>
 </div>
+
+<div class="chatbox">
+<div class="chatroom">
+  <div class="messages"
+  data-controller="chatroom-subscription"
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+    <% @chatroom.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+</div>
+
+<%= simple_form_for [@field, @chatroom, @message], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.field.name}" %>
+  <%= f.button :submit, "Send", class: "btn btn-navbar" %>
+<% end %>
+
+</div>
+<div class="chatbox-btn">
+  <i class="fas fa-comments"></i>
+</div>
