@@ -18,8 +18,15 @@ require("channels")
 
 import "controllers"
 import "bootstrap"
-import { typed } from "../plugins/typed";
-typed();
+import { typing } from "../plugins/typed";
+import Turbolinks from "turbolinks"
+
+Turbolinks.start()
+
+document.addEventListener('turbolinks:load', () => {
+  typing();
+})
+
 // import { initFlatpickr } from "../plugins/flatpickr";
 
 

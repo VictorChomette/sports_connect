@@ -61,7 +61,9 @@
                   <p class="mb-0"><%= review.comment%></p>
                 </div>
                 <div>
-                  <%= link_to "delete", review_path(review), method: :delete, class:"btn-delete" %>
+                  <%= link_to review_path(review), method: :delete do %>
+                    <i class="fas fa-trash btn-delete"  ></i>
+                  <% end %>
                 </div>
               </div>
               <hr>
