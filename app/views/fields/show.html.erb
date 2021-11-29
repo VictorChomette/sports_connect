@@ -31,7 +31,7 @@
           <div class="modal-body" data-controller="flatpickr" data-flatpickr-field-id-value="<%= @field.id %>">
             <%= simple_form_for [@field, Presence.new] do |f| %>
               <%= f.input :day, label: "Days:", as: :string, required: false, input_html: { data: { flatpickr_target: 'input' } } %>
-              <%= render 'presences_by_hour', field: @field %>
+              <%= render 'fields/presences_by_hour', field: @field %>
               <%= f.button :submit, "Go", class: "btn btn-navbar" %>
             <% end %>
           </div>
@@ -76,8 +76,8 @@
           <h3>Add your review</h3>
           <%= simple_form_for [@field, @review] do |f| %>
             <%= f.input :comment, placeholder: "Add your review here..." %>
-            <%= f.input :rating, as: :select, collection: (1..5), required: true, prompt: "What's your rating", input_html: { data: { controller: "jquery-bar-rating" } } %>
-            <%= f.submit class:"btn btn-navbar" %>
+            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+            <%= f.submit class:"btn-navbar" %>
           <% end %>
         </div>
       </div>
