@@ -10,11 +10,14 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
     resources :reviews, only: [:create]
     resources :presences, only: [:create]
+    resources :chatrooms, only: [:show] do
+      resources :messages, only: [:create]
+    end
   end
   resources :friendships, only: [:index, :create], path: 'friends'
 
   resources :favorites, only: [:index]
-  resources :reviews , only: [:destroy]
+  resources :reviews, only: [:destroy]
   # delete 'reviews/:id', to: 'reviews#destroy'
   resources :presences, only: [:index, :destroy]
 

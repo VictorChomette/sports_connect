@@ -51,19 +51,15 @@
               <i class="fas fa-heart" aria-hidden="true"></i>
             <% end %>
           <% else %>
-            <%= simple_form_for [field, Favorite.new] do |f| %>
-              <%= button_tag type: 'submit', class: "btn-fav" do %>
-                <i class="far fa-heart" aria-hidden="true"></i>
-              <% end %>
+            <%= link_to field_favorites_path(field_id: field, source: 'fields'), method: :post, class:'btn-fav' do %>
+              <i class="far fa-heart" aria-hidden="true"></i>
             <% end %>
           <% end %>
         </div>
       </div>
     <% else %>
-      <%= simple_form_for [field, Favorite.new] do |f| %>
-        <%= button_tag type: 'submit', class: "btn-fav" do %>
-          <i class="far fa-heart" aria-hidden="true"></i>
-        <% end %>
+      <%= link_to field_favorites_path(field_id: field, source: 'fields'), method: :post, class:'btn-fav' do %>
+        <i class="far fa-heart" aria-hidden="true"></i>
       <% end %>
     <% end %>
   </div>

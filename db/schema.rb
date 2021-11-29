@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_29_111141) do
+ActiveRecord::Schema.define(version: 2021_11_29_133941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 2021_11_29_111141) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.bigint "field_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["field_id"], name: "index_chatrooms_on_field_id"
   end
 
   create_table "favorite_sports", force: :cascade do |t|
@@ -75,6 +82,7 @@ ActiveRecord::Schema.define(version: 2021_11_29_111141) do
     t.text "description"
   end
 
+
   create_table "friendships", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "friend_id"
@@ -83,6 +91,16 @@ ActiveRecord::Schema.define(version: 2021_11_29_111141) do
     t.boolean "confirmed", default: false
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
     t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "presences", force: :cascade do |t|
@@ -129,6 +147,7 @@ ActiveRecord::Schema.define(version: 2021_11_29_111141) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chatrooms", "fields"
   add_foreign_key "favorite_sports", "sports"
   add_foreign_key "favorite_sports", "users"
   add_foreign_key "favorites", "fields"
@@ -137,6 +156,8 @@ ActiveRecord::Schema.define(version: 2021_11_29_111141) do
   add_foreign_key "field_sports", "sports"
   add_foreign_key "friendships", "users"
   add_foreign_key "friendships", "users", column: "friend_id"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "presences", "fields"
   add_foreign_key "presences", "users"
   add_foreign_key "reviews", "fields"
