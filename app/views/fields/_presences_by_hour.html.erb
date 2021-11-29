@@ -2,7 +2,7 @@
 
 <%= form.input :hour,
             as: :radio_buttons,
-            collection: field.presences_by_hour(date),
+            collection: field.presences_by_hour,
             label_method: lambda { |item| render 'fields/slot.html', item: item },
             input_html: { class: "tag-selector" },
             item_wrapper_class: 'tag-item',
