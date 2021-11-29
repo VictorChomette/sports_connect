@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   resources :reviews , only: [:destroy]
   resources :presences, only: [:index, :destroy]
 
+  # AJAX
+
+  get '/fetch_presences', to: 'presences#fetch'
+
 end

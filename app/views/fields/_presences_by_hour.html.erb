@@ -1,0 +1,10 @@
+<% form ||= nil; simple_form_for([field, Presence.new]) { |f| form ||= f } %>
+
+<%= form.input :hour,
+            as: :radio_buttons,
+            collection: field.presences_by_hour(date),
+            label_method: lambda { |item| render 'fields/slot.html', item: item },
+            input_html: { class: "tag-selector" },
+            item_wrapper_class: 'tag-item',
+            wrapper_html: { data: { flatpickr_target: 'slots' } }
+%>
