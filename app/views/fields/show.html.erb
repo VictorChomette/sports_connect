@@ -17,7 +17,7 @@
     </div>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary text-white mt-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <button type="button" class="btn btn-navbar text-white mt-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
       Go there!
     </button>
     <!-- Modal -->
@@ -30,9 +30,9 @@
           </div>
           <div class="modal-body" data-controller="flatpickr" data-flatpickr-field-id-value="<%= @field.id %>">
             <%= simple_form_for [@field, Presence.new] do |f| %>
-              <%= f.input :day, as: :string, required: false, input_html: { data: { flatpickr_target: 'input' } } %>
-              <%= render 'presences_by_hour', field: @field %>
-              <%= f.button :submit, "Go", class: "btn btn-primary" %>
+              <%= f.input :day, label: "Days:", as: :string, required: false, input_html: { data: { flatpickr_target: 'input' } } %>
+              <%= render 'fields/presences_by_hour', field: @field %>
+              <%= f.button :submit, "Go", class: "btn btn-navbar" %>
             <% end %>
           </div>
         </div>
@@ -76,7 +76,7 @@
           <h3>Add your review</h3>
           <%= simple_form_for [@field, @review] do |f| %>
             <%= f.input :comment, placeholder: "Add your review here..." %>
-                  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
             <%= f.submit class:"btn-navbar" %>
           <% end %>
         </div>
