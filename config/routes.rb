@@ -3,17 +3,18 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get '/profile', to: 'pages#profile'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :fields, only: [:index, :show] do
     resources :favorites, only: [:create, :destroy]
-    resources :reviews , only: [:create]
+    resources :reviews, only: [:create]
     resources :presences, only: [:create]
     resources :chatrooms, only: [:show] do
       resources :messages, only: [:create]
     end
   end
-
+  resources :friendships, only: [:index, :create], path: 'friends'
 
   resources :favorites, only: [:index]
   resources :reviews, only: [:destroy]

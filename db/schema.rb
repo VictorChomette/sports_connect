@@ -82,6 +82,17 @@ ActiveRecord::Schema.define(version: 2021_11_29_133941) do
     t.text "description"
   end
 
+
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "friend_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "confirmed", default: false
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.bigint "chatroom_id", null: false
@@ -143,6 +154,8 @@ ActiveRecord::Schema.define(version: 2021_11_29_133941) do
   add_foreign_key "favorites", "users"
   add_foreign_key "field_sports", "fields"
   add_foreign_key "field_sports", "sports"
+  add_foreign_key "friendships", "users"
+  add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "presences", "fields"

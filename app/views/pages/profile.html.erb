@@ -14,3 +14,15 @@
     <p>Age</p>
   </div>
 </div>
+
+<% unless @user == current_user %>
+  <% if Friendship.find_by(user: current_user, friend: @user) %>
+    <% if Friendship.find_by(user: current_user, friend: @user).confirmed %>
+    <h5>VOUS ETES POTES</h5>
+    <% else %>
+    <h5>Le mec a pas encore accepté</h5>
+    <% end %>
+  <% else %>
+    <%= link_to "Request friendship", friendships_path(user: @user.id), method: :post %>
+  <% end %>
+<% end %>

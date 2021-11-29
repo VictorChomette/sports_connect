@@ -14,7 +14,15 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :messages, dependent: :destroy
 
-
   validates :age, presence: true
   validates :username, presence: true, uniqueness: true
+
+  def friend_requests
+    # user.friend_requests => friendships made by other users (user_id), where I am the friend (friend_id) * confirmed false
+    Friendship.where(friend: self, confirmed: false)
+  end
+
+  def friends
+    Friendship.where('user_id = ? OR friend_id = ?', id, id).where(confirmed: true)
+  end
 end
