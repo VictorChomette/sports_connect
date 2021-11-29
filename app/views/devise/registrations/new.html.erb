@@ -1,26 +1,22 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :photo, as: :file, label: "Profile pictures" %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="body-cp">
+  <form class="form-cp">
+    <span class="nav-dot"></span>
+      <input class="input-cp" id="input-3" type="email" placeholder="email@address.com" required />
+      <label for="input-3">
+        <span class="label-text">Email</span>
+        <span class="nav-dot"></span>
+      </label>
+      <input class="input-cp" id="input-4" type="text" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
+      <label for="input-4">
+        <span class="label-text">Password</span>
+        <span class="nav-dot"></span>
+      </label>
+      <input class="input-cp" id="input-5" type="text" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required />
+      <label for="input-5">
+        <span class="label-text">Confirm Password</span>
+        <span class="nav-dot"></span>
+      </label>
+      <button class="signup-button" type="submit">Create Your Account</button>
+      <p class="tip">Press Tab</p>
+  </form>
+</div>
