@@ -29,7 +29,7 @@ class Field < ApplicationRecord
 
   has_many :sports, through: :field_sports
   has_many :favorites
-  has_one :chatroom
+  has_one :chatroom, dependent: :destroy
 
   validates :address, :status, presence: true
   validates :name, presence: true, uniqueness: true
