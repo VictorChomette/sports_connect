@@ -18,6 +18,8 @@ require("channels")
 
 import "controllers"
 import "bootstrap"
+import { typed } from "../plugins/typed";
+typed();
 // import { initFlatpickr } from "../plugins/flatpickr";
 
 
