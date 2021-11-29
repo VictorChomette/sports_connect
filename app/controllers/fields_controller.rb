@@ -25,6 +25,9 @@ class FieldsController < ApplicationController
     @field = Field.find(params[:id])
     @review = Review.new
 
+    @chatroom = Chatroom.find(@field.chatroom.id)
+    @message = Message.new
+
     #trouve et affiche un terrain selectionné dans la show avec ses parametres
     # authorize @field
     #ajout de markers sur la map prenant la long et lat.Une info window rend l'adresse du user

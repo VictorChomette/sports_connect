@@ -1,0 +1,17 @@
+.chatbox-btn {
+  position: fixed;
+  bottom: 2px;
+  right: 2px;
+  font-size: larger;
+}
+
+.chatbox {
+  z-index: 10;
+  position: fixed;
+  bottom: 30px;
+  right: 2px;
+
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 0.5px;
+}
