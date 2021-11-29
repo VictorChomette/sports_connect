@@ -1,0 +1,14 @@
+<div class= "container">
+  <div >
+    <h1>Friends</h1>
+    <% current_user.friends.each do |friend| %>
+      <%= User.find(friend.friend.id).username %>
+    <% end %>
+  </div>
+  <div>
+    <h1>Friends Requests</h2>
+    <% current_user.friend_requests.each do |friend| %>
+      <%= User.find(friend.friend.id).username %>
+    <% end %>
+  </div>
+</div>
