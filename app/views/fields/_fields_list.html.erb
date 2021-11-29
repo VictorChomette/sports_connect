@@ -1,7 +1,7 @@
 <% @fields.each do |field| %>
   <div class="card-field my-3">
     <% if field.photos.count > 0 %>
-      <div id="carousel-field-<%= field.id %>" class="carousel slide" data-bs-ride="carousel">
+      <div id="carousel-field-<%= field.id %>" class="carousel slide" data-bs-interval=false>
         <div class="carousel-inner">
           <% field.photos.each_with_index do |photo, i| %>
             <div class="carousel-item <%= "active" if i == 0 %>">
