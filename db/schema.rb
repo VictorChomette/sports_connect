@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 2021_11_29_133941) do
     t.text "description"
   end
 
-
   create_table "friendships", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "friend_id"
