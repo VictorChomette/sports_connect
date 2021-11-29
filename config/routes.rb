@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
     resources :reviews , only: [:create]
     resources :presences, only: [:create]
+    resources :chatrooms, only: :show do
+      resources :messages, only: [new, :create]
+    end
   end
 
 
