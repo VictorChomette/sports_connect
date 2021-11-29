@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:index]
   resources :reviews , only: [:destroy]
+  # delete 'reviews/:id', to: 'reviews#destroy'
   resources :presences, only: [:index, :destroy]
 
   # AJAX

@@ -18,8 +18,8 @@ handball = Sport.create!(name: "Handball")
 volleyball = Sport.create!(name: "Volleyball")
 petanque = Sport.create!(name: "Pétanque")
 pingpong = Sport.create!(name: "Ping-Pong")
-athletisme = Sport.create!(name: "Athlétisme")
-natation = Sport.create!(name: "Natation")
+athletisme = Sport.create!(name: "Athletics")
+natation = Sport.create!(name: "Swimming")
 
 user1 = User.create!(email: "test@gmail.com", password: "123456", username: "test_account", age: 24)
 FavoriteSport.create!(user: user1, sport: football)
@@ -63,7 +63,7 @@ FavoriteSport.create!(user: user8, sport: tennis)
 FavoriteSport.create!(user: user8, sport: basketball)
 FavoriteSport.create!(user: user8, sport: athletisme)
 
-field1 = Field.create!(name: "Stade Emile Anthoine", address: "2 Av. de Suffren, 75007 Paris", field_type: 2, status: 0, description: "Centre sportif disponible avec une vue incroyable sur la tour Eiffel.")
+field1 = Field.create!(name: "Stade Emile Anthoine", address: "2 Av. de Suffren, 75007 Paris", field_type: 2, status: 0, description: "Sports center available with an incredible view of the Eiffel Tower.")
 FieldSport.create!(field: field1, sport: football)
 FieldSport.create!(field: field1, sport: athletisme)
 FieldSport.create!(field: field1, sport: volleyball)
@@ -75,7 +75,7 @@ field1.photos.attach(io: picturefield11, filename: 'Gymnase Emile Anthoine', con
 picturefield111 = URI.open('https://www.api-site.paris.fr/equipements/2021/06/09/09/38/20/0276ea34-9fa5-402e-8c55-8dbc5c7fe856/1.png')
 field1.photos.attach(io: picturefield111, filename: 'Piscine Emile Anthoine', content_type: 'image/png')
 
-field2 = Field.create!(name: "Parc André-Citroën", address: "2 Rue Cauchy, 75015 Paris", field_type: 1, status: 0, description: "Table de ping-pong disponible en libre service. Possibilité d'effectuer une partie de pétanque aux alentours.")
+field2 = Field.create!(name: "Parc André-Citroën", address: "2 Rue Cauchy, 75015 Paris", field_type: 1, status: 0, description: "Self-service table tennis available. Possibility to play a game of pétanque in the nearby area.")
 FieldSport.create!(field: field2, sport: petanque)
 FieldSport.create!(field: field2, sport: pingpong)
 # begin
@@ -86,7 +86,7 @@ FieldSport.create!(field: field2, sport: pingpong)
 field2.photos.attach(io: picturefield2, filename: 'Parc André-Citroën', content_type: 'image/png')
 field2.photos.attach(io: picturefield22, filename: 'Parc André-Citroën2', content_type: 'image/png')
 
-field3 = Field.create!(name: "Stade Suzanne Lenglen", address: "4 All. de la Bertelotte, 75015 Paris", field_type: 2, status: 0, description: "Complexe sportif avec une multitude de terrain de football et de tennis ainsi qu'un city permettant de pratiquer du basket. Terrain de tennis couvert et en extérieur avec différent types de surfaces.")
+field3 = Field.create!(name: "Stade Suzanne Lenglen", address: "4 All. de la Bertelotte, 75015 Paris", field_type: 2, status: 0, description: "Sports complex with a number of football and tennis courts and a city for playing basketball. Indoor and outdoor tennis courts with different types of surfaces.")
 FieldSport.create!(field: field3, sport: tennis)
 FieldSport.create!(field: field3, sport: pingpong)
 FieldSport.create!(field: field3, sport: football)
@@ -98,7 +98,7 @@ picturefield33 = URI.open('https://www.api-site.paris.fr/equipements/2021/03/05/
 field3.photos.attach(io: picturefield3, filename: 'Stade Suzanne Lenglen', content_type: 'image/png')
 field3.photos.attach(io: picturefield33, filename: 'Stade Suzanne Lenglen2', content_type: 'image/png')
 
-field4 = Field.create!(name: "City Stade 15ème", address: "Esplanade Max Guedj, Rue de la Montagne d'Aulas, 75015 Paris", field_type: 1, status: 0, description: "City-stade en bitume disponible dans le 15eme arrondissement de Paris.")
+field4 = Field.create!(name: "City Stade 15ème", address: "Esplanade Max Guedj, Rue de la Montagne d'Aulas, 75015 Paris", field_type: 1, status: 0, description: "Playground stadium available in the 15th district of Paris.")
 FieldSport.create!(field: field4, sport: basketball)
 FieldSport.create!(field: field4, sport: football)
 picturefield4 = URI.open('https://images.unsplash.com/photo-1549831144-f197e398adad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')
@@ -107,7 +107,7 @@ picturefield44 = URI.open('https://images.unsplash.com/photo-1473663065522-33361
 field4.photos.attach(io: picturefield4, filename: 'City Stade 15ème', content_type: 'image/png')
 field4.photos.attach(io: picturefield44, filename: 'City Stade 15ème2', content_type: 'image/png')
 
-field5 = Field.create!(name: "Stade Léo Lagrange", address: "68 Bd Poniatowski, 75012 Paris", field_type: 2, status: 0, description: "Complexe sportif permettant de pratiquer une multitude de sport.")
+field5 = Field.create!(name: "Stade Léo Lagrange", address: "68 Bd Poniatowski, 75012 Paris", field_type: 2, status: 0, description: "Sports center offering a wide range of sports.")
 FieldSport.create!(field: field5, sport: athletisme)
 FieldSport.create!(field: field5, sport: football)
 FieldSport.create!(field: field5, sport: tennis)
@@ -120,7 +120,7 @@ picturefield55 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/11/
 field5.photos.attach(io: picturefield5, filename: 'Stade Léo Lagrange', content_type: 'image/png')
 field5.photos.attach(io: picturefield55, filename: 'Stade Léo Lagrange2', content_type: 'image/png')
 
-field6 = Field.create!(name: "City Stade - Square Docteur Calmette", address: "72 Bd Lefebvre, 75015 Paris", field_type: 1, status: 1, description:"Situé au sein du Parc Georges Brassens, ce city-stade permet de jouer au basket et au foot. Des tables de Ping-Pong sont également disponible.")
+field6 = Field.create!(name: "City Stade - Square Docteur Calmette", address: "72 Bd Lefebvre, 75015 Paris", field_type: 1, status: 1, description:"Located in the Georges Brassens Park, this playground allows you to play basketball and football. Ping-Pong tables are also available.")
 FieldSport.create!(field: field6, sport: pingpong)
 FieldSport.create!(field: field6, sport: basketball)
 FieldSport.create!(field: field6, sport: football)
@@ -130,7 +130,7 @@ picturefield66 = URI.open('https://www.api-site.paris.fr/equipements/2018/07/27/
 field6.photos.attach(io: picturefield6, filename: 'City Stade - Square Docteur Calmette', content_type: 'image/png')
 field6.photos.attach(io: picturefield66, filename: 'City Stade - Square Docteur Calmette2', content_type: 'image/png')
 
-field7 = Field.create!(name: "City Stade Passage Dumas", address: "16 Pass. Dumas, 75011 Paris", field_type: 1, status: 2, description: "Situé à coté du centre sportif Philippe Auguste, ce city stade permet de jouer au basketball et au football en libre-service.")
+field7 = Field.create!(name: "City Stade Passage Dumas", address: "16 Pass. Dumas, 75011 Paris", field_type: 1, status: 2, description: "Located next to the Philippe Auguste sports centre, this playground is perfect for Basketball and Football players.")
 FieldSport.create!(field: field7, sport: basketball)
 FieldSport.create!(field: field7, sport: football)
 picturefield7 = URI.open('https://www.api-site.paris.fr/equipements/2021/06/07/15/45/18/50582874-f79c-4bf9-bbf8-91349eb1e675/vincentaurol2.jpg')
@@ -139,7 +139,7 @@ picturefield77 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/08/
 field7.photos.attach(io: picturefield7, filename: 'City Stade Passage Dumas', content_type: 'image/png')
 field7.photos.attach(io: picturefield77, filename: 'City Stade Passage Dumas2', content_type: 'image/png')
 
-field8 = Field.create!(name: "Terrain-Petanque", address: "57 Quai de Grenelle Paris, 75015", field_type: 1, status: 0, description: "Trois terrains de pétanque en libre-service, disponible le long des quais de Seine dans le 15eme arrondissement. N'oubliez pas de ramener votre materiel.")
+field8 = Field.create!(name: "Terrain-Petanque", address: "57 Quai de Grenelle Paris, 75015", field_type: 1, status: 0, description: "Three self-service petanque courts are available along the shores of the Seine in the 15th district of Paris.  Don't forget to bring your own material.")
 FieldSport.create!(field: field8, sport: petanque)
 picturefield8 = URI.open('https://www.api-site.paris.fr/equipements/2018/05/09/12/00/55/839ae86c-9dd9-4436-bbb8-fdf34d20384c/232413.jpg')
 picturefield88 = URI.open('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80')
@@ -147,7 +147,7 @@ picturefield88 = URI.open('https://images.unsplash.com/photo-1502602898657-3e917
 field8.photos.attach(io: picturefield8, filename: 'Terrain-Petanque', content_type: 'image/png')
 field8.photos.attach(io: picturefield88, filename: 'Terrain-Petanque2', content_type: 'image/png')
 
-field9 = Field.create!(name: "Tep Des Amandiers", address: "21 Rue des Cendriers, 75020 Paris", field_type: 1, status: 0, description: "Terrain mutltisports disponible pour le basket et le football accompagné d'une piste d'athlétisme. Centre sportif à disposition dans un rayon proche.")
+field9 = Field.create!(name: "Tep Des Amandiers", address: "21 Rue des Cendriers, 75020 Paris", field_type: 1, status: 0, description: "Sports field available for basketball and football with an athletics track. Sports centre available in the area.")
 FieldSport.create!(field: field9, sport: athletisme)
 FieldSport.create!(field: field9, sport: basketball)
 FieldSport.create!(field: field9, sport: football)
@@ -157,7 +157,7 @@ picturefield99 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/14/
 field9.photos.attach(io: picturefield9, filename: 'Tep Des Amandiers', content_type: 'image/png')
 field9.photos.attach(io: picturefield99, filename: 'Tep Des Amandiers2', content_type: 'image/png')
 
-field10 = Field.create!(name: "Terrain de sport Duperré", address: "22 rue Duperré 75009 Paris", field_type: 1, status: 1, description: "Plus beaux terrains de Basket de la ville de Paris. Situé dans le 9eme arrondissement, ce terrain reste ouvert au public et attire nombreux touristes.")
+field10 = Field.create!(name: "Terrain de sport Duperré", address: "22 rue Duperré 75009 Paris", field_type: 1, status: 1, description: "The most beautiful basketball court in Paris.Located in the 9th district of Paris, this court remains open to the public and attracts many tourists.")
 FieldSport.create!(field: field10, sport: basketball)
 picturefield10 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/14/11/47/58/4ce0109f-f56f-4ef7-9697-6d1edbb6c639/Duperre.jpg')
 picturefield100 = URI.open('https://images.unsplash.com/photo-1565106305526-02f1f6e0e74b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')
@@ -165,7 +165,7 @@ picturefield100 = URI.open('https://images.unsplash.com/photo-1565106305526-02f1
 field10.photos.attach(io: picturefield10, filename: 'Terrain de sport Duperré', content_type: 'image/png')
 field10.photos.attach(io: picturefield100, filename: 'Terrain de sport Duperré2', content_type: 'image/png')
 
-field11 = Field.create!(name: "Square Paturle", address: "1 rue Paturle 75014 Paris", field_type: 1, status: 0, description: "Terrain de Basket ouvert 24h/24.")
+field11 = Field.create!(name: "Square Paturle", address: "1 rue Paturle 75014 Paris", field_type: 1, status: 0, description: "Basketball court open 24 hours a day.")
 FieldSport.create!(field: field11, sport: basketball)
 picturefield11 = URI.open('https://www.api-site.paris.fr/equipements/2018/05/09/16/14/21/a37f3c3b-e2f5-4e26-98fa-ba63b1905b2e/TEP-header.jpg')
 picturefield111 = URI.open('https://images.unsplash.com/photo-1443472933321-f2617633c81b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')
@@ -173,7 +173,7 @@ picturefield111 = URI.open('https://images.unsplash.com/photo-1443472933321-f261
 field11.photos.attach(io: picturefield11, filename: 'Square Paturle', content_type: 'image/png')
 field11.photos.attach(io: picturefield111, filename: 'Square Paturle', content_type: 'image/png')
 
-field12 = Field.create!(name: "Les Arènes de Lutèce", address: "49 rue Monge, 75005 Paris", field_type: 1, status: 0, description: "Entre histoire et loisir, profitez d'une belle partie de pétanque en plein coeur des Arènes de Lutèce !")
+field12 = Field.create!(name: "Les Arènes de Lutèce", address: "49 rue Monge, 75005 Paris", field_type: 1, status: 0, description: "Between history and hobbies, enjoy a nice game of pétanque in the heart of the Arènes de Lutèce!")
 FieldSport.create!(field: field12, sport: petanque)
 picturefield12 = URI.open('https://www.api-site.paris.fr/equipements/2021/11/16/14/56/31/4ed8f0ff-2fd8-4490-8c6d-241ff29a1762/74091_-_Square_des_Arenes_de_Lutece_et_Square_Capitan-3.jpg')
 picturefield122 = URI.open('https://www.api-site.paris.fr/equipements/2018/07/27/14/13/48/572650c2-d7be-464f-8edd-a6fa84cb78c8/APO_2632.jpg')
@@ -181,7 +181,7 @@ picturefield122 = URI.open('https://www.api-site.paris.fr/equipements/2018/07/27
 field12.photos.attach(io: picturefield12, filename: 'Les Arènes de Lutèce', content_type: 'image/png')
 field12.photos.attach(io: picturefield122, filename: 'Les Arènes de Lutèce2', content_type: 'image/png')
 
-field13 = Field.create!(name: "Square Pierre-de-Gaulle", address: "2 Place du Président Mithouard, 75007 Paris", field_type: 1, status: 0, description: "Table de Ping-Pong en libre service dans le 7eme arrondissement de Paris.")
+field13 = Field.create!(name: "Square Pierre-de-Gaulle", address: "2 Place du Président Mithouard, 75007 Paris", field_type: 1, status: 0, description: "Self-service table tennis table in the 7th district of Paris.")
 FieldSport.create!(field: field13, sport: pingpong)
 picturefield13 = URI.open('https://www.api-site.paris.fr/equipements/2018/08/20/14/07/09/0e793905-64c7-48ee-939c-a825eb1ab078/Square_Pierre_de_Gaulle-2.jpg')
 picturefield133 = URI.open('https://www.api-site.paris.fr/equipements/2018/08/20/14/07/11/78b6134d-76dc-4b5b-babc-6cfdd2c2040c/Square_Pierre_de_Gaulle-3.jpg')
@@ -189,7 +189,7 @@ picturefield133 = URI.open('https://www.api-site.paris.fr/equipements/2018/08/20
 field13.photos.attach(io: picturefield13, filename: 'Square Pierre-de-Gaulle', content_type: 'image/png')
 field13.photos.attach(io: picturefield133, filename: 'Square Pierre-de-Gaulle2', content_type: 'image/png')
 
-field14 = Field.create!(name: "Playground du Champs-de-Mars", address: "2 All. Adrienne Lecouvreur, 75007 Paris", field_type: 1, status: 0, description: "Terrain extérieur situé sur le Champs-De-Mars. Terrain en bitume. Terrain libre pour la pétanque.")
+field14 = Field.create!(name: "Playground du Champs-de-Mars", address: "2 All. Adrienne Lecouvreur, 75007 Paris", field_type: 1, status: 0, description: "Outdoor site located on the Champs-De-Mars. Asphalt court. Free ground for petanque.")
 FieldSport.create!(field: field14, sport: petanque)
 FieldSport.create!(field: field14, sport: basketball)
 FieldSport.create!(field: field14, sport: football)
@@ -199,7 +199,7 @@ picturefield144 = URI.open('https://images.unsplash.com/photo-1531264993164-04a7
 field14.photos.attach(io: picturefield14, filename: 'Playground du Champs-de-Mars', content_type: 'image/png')
 field14.photos.attach(io: picturefield144, filename: 'Playground du Champs-de-Mars2', content_type: 'image/png')
 
-field15 = Field.create!(name: "Terrain Multisports Principal Philippe Auguste", address: "68 Av. Philippe Auguste, 75011 Paris", field_type: 2, status: 0, description:"Terrain multisports de basket et foot dans le 11e arrondissement sur un terrain en synthétique de longueur 40m et largeur 20 m. Gymnase disponible avec vestiaire.")
+field15 = Field.create!(name: "Terrain Multisports Principal Philippe Auguste", address: "68 Av. Philippe Auguste, 75011 Paris", field_type: 2, status: 0, description:"Multi-sports field for basketball and football in the 11th district of Paris on a synthetic pitch 40 meters long and 20 meters wide. Gymnasium available with changing room.")
 FieldSport.create!(field: field15, sport: volleyball)
 FieldSport.create!(field: field15, sport: basketball)
 FieldSport.create!(field: field15, sport: football)
@@ -211,21 +211,21 @@ picturefield155 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/11
 field15.photos.attach(io: picturefield15, filename: 'Terrain Multisports Principal Philippe Auguste', content_type: 'image/png')
 field15.photos.attach(io: picturefield155, filename: 'Terrain Multisports Principal Philippe Auguste2', content_type: 'image/png')
 
-field16 = Field.create!(name: "Piscine Jacqueline Auriol ex Beaujon", address: "7 Allée Louis de Funès 75008 Paris", field_type: 0, status: 0, description: "Piscine disponible en plein coeur du 8ème arrondissement. Différentes activités proposées (aquagim, brevet de natation..). Prix à l'unité: 3,50€.")
+field16 = Field.create!(name: "Piscine Jacqueline Auriol ex Beaujon", address: "7 Allée Louis de Funès 75008 Paris", field_type: 0, status: 0, description: "Swimming pool available in the heart of the 8th district. Various activities available (aquagim, swimming certificate..). Price per unit: 3,50€.")
 FieldSport.create!(field: field16, sport: natation)
 picturefield16 = URI.open('https://www.api-site.paris.fr/equipements/2018/06/22/16/11/14/8207cb6e-1460-446c-aad3-5e42c76ae0a0/Piscine-Beaujon-public-header.jpg')
 picturefield166 = URI.open('https://images.unsplash.com/photo-1519315901367-f34ff9154487?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')
 field16.photos.attach(io: picturefield16, filename: 'Piscine 8e', content_type: 'image/png')
 field16.photos.attach(io: picturefield166, filename: 'Piscine 2 8e', content_type: 'image/png')
 
-field17 = Field.create!(name: "Piscine Paul Valeyre", address: "24 rue Marguerite de Rochechouart 75009 PARIS", field_type: 0, status: 0, description: "Situé dans le 9ème arrondissement de Paris, ce lieu propose différentes activités à un prix de 2€ l'unité pour l'entrée. Ouverte du Lundi au Dimanche, les horaires peuvent varier en fonction des jours.")
+field17 = Field.create!(name: "Piscine Paul Valeyre", address: "24 rue Marguerite de Rochechouart 75009 PARIS", field_type: 0, status: 0, description: "Located in the 9th district of Paris, this place offers different activities at a price of 2€ each for the entrance. Open from Monday to Sunday, opening hours may vary according to the day.")
 FieldSport.create!(field: field17, sport: natation)
 picturefield17 = URI.open('https://www.api-site.paris.fr/equipements/2018/06/22/16/20/36/128b2cd5-a51b-41d4-ba85-88bca5437381/Valeyre-header.jpg')
 picturefield177 = URI.open('https://images.unsplash.com/photo-1558617320-e695f0d420de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')
 field17.photos.attach(io: picturefield17, filename: 'Piscine 9eme', content_type: 'image/png')
 field17.photos.attach(io: picturefield177, filename: 'Piscine 2 9eme', content_type: 'image/png')
 
-field18 = Field.create!(name: "Gymnase Charles Mildé ex Saussure", address: "38 rue Georges Picquart 75017 Paris", field_type: 0, status: 2, description: "Nouveaux centre sportif en construction en plein coeur du 17eme arrondissement. Inauguration dans les prochains jours !")
+field18 = Field.create!(name: "Gymnase Charles Mildé ex Saussure", address: "38 rue Georges Picquart 75017 Paris", field_type: 0, status: 2, description: "New sports centre under construction in the heart of the 17th arrondissement. Inauguration in the next few days!")
 FieldSport.create!(field: field18, sport: basketball)
 FieldSport.create!(field: field18, sport: handball)
 FieldSport.create!(field: field18, sport: volleyball)
