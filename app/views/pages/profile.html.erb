@@ -1,5 +1,5 @@
 <div class="profile-container">
-  <%= link_to "edit profile", edit_user_registration_path, class:"btn-find"%>
+    <%= link_to "edit profile", edit_user_registration_path, class:"btn-find"%>
   <% if @user.photo.present? %>
     <%= cl_image_tag @user.photo.key, class:"avatar-profile" %>
   <%else%>
@@ -18,9 +18,9 @@
 <% unless @user == current_user %>
   <% if Friendship.find_by(user: current_user, friend: @user) %>
     <% if Friendship.find_by(user: current_user, friend: @user).confirmed %>
-    <h5>VOUS ETES POTES</h5>
+    <h5>You're friends</h5>
     <% else %>
-    <h5>Le mec a pas encore accepté</h5>
+    <h5>Still waiting ...</h5>
     <% end %>
   <% else %>
     <%= link_to "Request friendship", friendships_path(user: @user.id), method: :post %>

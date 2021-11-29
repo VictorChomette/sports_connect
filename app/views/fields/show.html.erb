@@ -64,7 +64,7 @@
           <h3>Reviews</h3>
           <div class=" mb-5">
             <% @field.reviews.each do |review| %>
-              <%= link_to review.user.username, profile_path, class:"text-decoration-none fw-bold" %>
+              <%= link_to review.user.username, profile_path(user: review.user.id), class:"text-decoration-none fw-bold" %>
               <div class="d-flex justify-content-between align-items-end">
                 <div>
                   <% review.rating.times do %>
