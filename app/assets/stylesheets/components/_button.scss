@@ -13,12 +13,16 @@
 }
 
 .btn-blue {
-  background-color:$bluesecond ;
-  border: 1px solid #4A4A4A;
-  padding: 18px 34px;
-  border-radius: 10px;
+  background-color: $bluesecond;
+  border: 1px solid $bluesecond;
+  padding: 8px 12px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
   color: white;
-  margin: 8px;
+  margin: 8px 8px 8px 0px;
+  width: 62px;
+  height: 62px;
+  font-size: 24px;
 }
 
 .btn-navbar {
@@ -51,5 +55,18 @@
   font-size: 28px;
   i {
     color: rgb(202, 29, 52);
+  }
+}
+
+.btn-delete {
+  border: grey;
+  padding: 4px;
+  font-weight: bold;
+  background-color: red;
+  text-decoration: none;
+  color: white;
+  border-radius: 10%;
+  &:hover {
+    color: white !important;
   }
 }
