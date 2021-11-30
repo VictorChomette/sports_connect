@@ -63,14 +63,14 @@
 .chatbox-btn {
   position: fixed;
   bottom: 2px;
-  right: 2px;
+  right: 8px;
   font-size: larger;
 }
 
 .chatbox {
   z-index: 10;
   position: fixed;
-  bottom: 30px;
+  bottom: 40px;
   right: 2px;
 
   border-style: solid;
@@ -85,7 +85,7 @@
 }
 
 .fa-comments {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   margin: 10px;
   color: $bluesecond;
 }
