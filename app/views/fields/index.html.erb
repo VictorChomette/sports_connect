@@ -9,9 +9,18 @@
     <%# Filter buttons and order dropdown %>
     <div class="d-flex mt-3 align-items-center">
       <div class="me-3">
-        <%= link_to "Indoor/Outdoor", "#", class: "btn btn-ghost mr-2" %>
-        <%= link_to "Public/Private", "#", class: "btn btn-ghost mx-2" %>
-        <%= link_to "Rating", "#", class: "btn btn-ghost ml-2" %>
+        <div class="dropdown">
+          <button class="btn btn-ghost ml-2 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Indoor / Outdoor
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><%= link_to 'Indoor', request.params.merge(field_type: '0'), class: 'dropdown-item' %></li>
+            <li><%= link_to 'Outdoor', request.params.merge(field_type: '1'), class: 'dropdown-item' %></li>
+            <li><%= link_to 'Both', request.params.merge(field_type: '2'), class: 'dropdown-item' %></li>
+          </ul>
+          <%= link_to "Public/Private", "#", class: "btn btn-ghost mx-2" %>
+          <%= link_to "Rating", "#", class: "btn btn-ghost ml-2" %>
+        </div>
       </div>
       <span>Par meilleures notes</span>
     </div>
