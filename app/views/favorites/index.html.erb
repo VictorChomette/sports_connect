@@ -1,41 +1,30 @@
-<div class="d-flex">
-  <div class="p-4 shadow-lg p-3 w-100">
-    <h2>My Favorites Fields</h2>
-    <%# Filter buttons and order dropdown %>
-    <div class="d-flex mt-3 align-items-center">
-      <div class="me-3">
-        <%= link_to "Indoor/Outdoor", "#", class: "btn btn-ghost mr-2" %>
-        <%= link_to "Public/Private", "#", class: "btn btn-ghost mx-2" %>
-        <%= link_to "Rating", "#", class: "btn btn-ghost ml-2" %>
-      </div>
-      <span>Par meilleures notes</span>
-    </div>
-    <%# Iteration over the fields, and cards %>
-
-    <div class="d-flex align-items-center justify-content-between flex-wrap">
-      <% @fields.each do |field| %>
-        <div class="card-field my-3" style="width: 48%;">
-          <div class="field-pic-div">
-            <div style="background-image: url(<%= cl_image_path field.photos.first.key%>); height: 200px;" class="field-pic">
+<div class="container">
+  <div class="container-fav row">
+    <% @fields.each do |field| %>
+      <div class="col-sm-6">
+        <div class="card-fav">
+          <% if field.photos.count > 0 %>
+            <div id="carousel-field-<%= field.id %>" class="carousel slide" data-bs-interval=false>
+              <div class="carousel-inner">
+                <% field.photos.each_with_index do |photo, i| %>
+                  <div class="carousel-item <%= "active" if i == 0 %>">
+                      <%= link_to field_path(field) do %>
+                      <div style="background-image: url(<%= cl_image_path photo.key%>); height: 200px;" class="field-pic">
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+              <a class="carousel-control-prev" href="#carousel-field-<%= field.id %>" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carousel-field-<%= field.id %>" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
-          </div>
-          <div class="card-field-infos">
-            <div>
-              <h2><%= link_to field.name, "/", class: 'text-decoration-none text-black'%></h2>
-              <p><%= field.description %></p>
-              <p><%= field.address %></p>
-            </div>
-            <p class="card-field-user avatar-bordered"> <strong>Rating here</strong></p>
-          </div>
-          <div class="d-flex justify-content-between px-3 pb-2">
-            <%= link_to "Find out more", field_path(field), class:"btn-find" %>
-            <%# Bouton favori et delete pour les fields %>
-            <% if current_user.fields.uniq.include? field %>
-              <%= link_to field_favorite_path(field_id: field, id: current_user.favorites.find_by(field_id: field.id).id, source: 'fields'), method: :delete, class:'btn-fav' do %>
-                <i class="fas fa-heart" aria-hidden="true"></i>
-              <% end %>
-            <% end %>
-            <h2 class="card-field-pricing" >
+            <div class="card-field-pricing" >
               <% if field.status_open? %>
                 <span class="badge rounded-pill bg-success"><%= field.status.capitalize %></span>
               <% elsif field.status_closed? %>
@@ -43,13 +32,41 @@
               <% else %>
                 <span class="badge rounded-pill bg-warning text-dark"><%= field.status.capitalize %></span>
               <% end %>
-            </h2>
-          </div>
+            </div>
+            <div class="card-field-infos">
+              <div>
+                <h2>
+                  <%= link_to field_path(field), class: 'text-decoration-none text-black' do %>
+                    <%= field.name  %>
+                  <% end %>
+                </h2>
+                <p>
+                  <i class="card-field-user text-center fas fa-star"></i>
+                  <strong> <%= field.average_rating %> <%= field.text_rating %></strong> <%= field.description %>
+                </p>
+                <p><%= field.address %></p>
+              </div>
+              <div class="d-flex justify-content-between align-items-center px-3 pb-2">
+                <%#= link_to "Find out more", field_path(field, query: { localisation: @address }), class:"btn-find text-white" %>
+                <%# Bouton favori et delete pour les fields %>
+                <% if current_user.fields.uniq.include? field %>
+                  <%= link_to field_favorite_path(field_id: field, id: current_user.favorites.find_by(field_id: field.id).id, source: 'fields'), method: :delete, class:'btn-fav' do %>
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to field_favorites_path(field_id: field, source: 'fields'), method: :post, class:'btn-fav' do %>
+                    <i class="far fa-heart" aria-hidden="true"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          <% else %>
+            <%= link_to field_favorites_path(field_id: field, source: 'fields'), method: :post, class:'btn-fav' do %>
+              <i class="far fa-heart" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
         </div>
-      <% end %>
-    </div>
-    <%#= paginate @fields %>
+      </div>
+    <% end %>
   </div>
-  <%# </div> %>
 </div>
-<%# <%= image_tag("blob_index.png") %>
