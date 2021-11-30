@@ -23,6 +23,6 @@ class User < ApplicationRecord
   end
 
   def friends
-    Friendship.where('user_id = ? OR friend_id = ?', id, id).where(confirmed: true)
+    Friendship.where('user_id = ? OR friend_id = ?', id, id).where(confirmed: true).map{ |f| f.user.id == id ? f.friend : f.user }
   end
 end

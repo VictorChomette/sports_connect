@@ -1,9 +1,21 @@
 <div class="profile-container">
+  <%  if @user == current_user %>
     <%= link_to "edit profile", edit_user_registration_path, class:"btn-find"%>
+  <% else %>
+    <% if Friendship.find_by(user: current_user, friend: @user) %>
+      <% if Friendship.find_by(user: current_user, friend: @user).confirmed %>
+        <h5>You're friend</h5>
+      <% else %>
+       <h5>Still waiting ...</h5>
+      <% end %>
+    <% else %>
+      <%= link_to "Add Friend", friendships_path(user: @user.id), method: :post, class:"btn-navbar" %>
+    <% end %>
+  <% end %>
   <% if @user.photo.present? %>
     <%= cl_image_tag @user.photo.key, class:"avatar-profile" %>
   <%else%>
-    <%= image_tag("keen.jpg", class:"avatar-profile")%>
+    <%= image_tag("ribery.jpg", class:"avatar-profile")%>
     <% end %>
   <div class="profile-information">
     <h2><%= @user.username %></h2>
@@ -20,13 +32,5 @@
 </div>
 
 <% unless @user == current_user %>
-  <% if Friendship.find_by(user: current_user, friend: @user) %>
-    <% if Friendship.find_by(user: current_user, friend: @user).confirmed %>
-    <h5>You're friends</h5>
-    <% else %>
-    <h5>Still waiting ...</h5>
-    <% end %>
-  <% else %>
-    <%= link_to "Request friendship", friendships_path(user: @user.id), method: :post %>
-  <% end %>
+
 <% end %>
