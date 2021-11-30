@@ -1,10 +1,10 @@
 <div class="d-flex blob">
 <%# <% raise %>
   <div class="p-4 shadow-lg p-3 w-50">
-    <p> <%= @fields.all.count %> résultats</p>
-      <h2>Terrains de
+    <p> <%= @fields.all.count %> results</p>
+      <h2>Fields of
         <span><%= params.dig(:query, :sport).present? ? params.dig(:query, :sport) : "sport" %> </span>
-        <span><%= params.dig(:query, :address).present? ? "à #{params.dig(:query, :address)}" : "à Paris" %></span>
+        <span><%= params.dig(:query, :address).present? ? "in #{params.dig(:query, :address)}" : "in Paris" %></span>
       </h2>
     <%# Filter buttons and order dropdown %>
     <div class="d-flex mt-3 align-items-center">
@@ -22,7 +22,7 @@
           <%= link_to "Rating", "#", class: "btn btn-ghost ml-2" %>
         </div>
       </div>
-      <span>Par meilleures notes</span>
+      <span>By highest scores</span>
     </div>
     <%# Iteration over the fields, and cards %>
     <div>
