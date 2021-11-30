@@ -12,7 +12,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "My Favorites", favorites_path, class: "btn-navbar"  %>
+            <%= link_to "My Favorites(#{current_user.favorites.count})", favorites_path, class: "btn-navbar"  %>
           </li>
           <li class="nav-item">
           <%= link_to "My Games", presences_path, class: "btn-navbar"  %>
