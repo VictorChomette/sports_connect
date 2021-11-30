@@ -51,10 +51,10 @@
     object-position: center;
   } */
 
-  .field-pic-div {
-    height: 200px;
-    overflow: hidden;
-  }
+  // .field-pic-div {
+  //   height: 200px;
+  //   overflow: hidden;
+  // }
 
   .field-pic {
     transition: transform 0.3s ease;
@@ -129,4 +129,48 @@ i.card-field-user > strong { // css du texte du ratings
   width: 30%;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+//partie favoris
+.card-fav{
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius:5px ;
+  position: relative;
+
+  &:hover {
+    .field-pic {
+      transform: scale(1.05);
+    }
+  }
+
+  .field-pic {
+    transition: transform 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: cover;
+    background-position: bottom;
+  }
+
+}
+
+.card-fav .card-field-infos{
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.card-fav h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-fav p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
 }
