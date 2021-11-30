@@ -1,4 +1,4 @@
-<% @fields.each do |field| %>
+<% fields.each do |field| %>
   <div class="card-field my-3">
     <% if field.photos.count > 0 %>
       <div id="carousel-field-<%= field.id %>" class="carousel slide" data-bs-interval=false>
@@ -43,17 +43,12 @@
           </p>
           <p><%= field.address %></p>
         </div>
-        <div class="d-flex justify-content-between align-items-center px-3 pb-2">
-          <%#= link_to "Find out more", field_path(field, query: { localisation: @address }), class:"btn-find text-white" %>
-          <%# Bouton favori et delete pour les fields %>
+        <div class="d-flex justify-content-between align-items-center px-3 pb-2" data-controller="favorite" >
+          <%# Bouton favori %>
           <% if current_user.fields.uniq.include? field %>
-            <%= link_to field_favorite_path(field_id: field, id: current_user.favorites.find_by(field_id: field.id).id, source: 'fields'), method: :delete, class:'btn-fav' do %>
-              <i class="fas fa-heart" aria-hidden="true"></i>
-            <% end %>
+            <i class="fas fa-heart btn-fav" aria-hidden="true" data-action="click->favorite#update" data-favorite-field-id-param="<%= field.id %>"></i>
           <% else %>
-            <%= link_to field_favorites_path(field_id: field, source: 'fields'), method: :post, class:'btn-fav' do %>
-              <i class="far fa-heart" aria-hidden="true"></i>
-            <% end %>
+            <i class="far fa-heart btn-fav" aria-hidden="true" data-action="click->favorite#update" data-favorite-field-id-param="<%= field.id %>"></i>
           <% end %>
         </div>
       </div>
