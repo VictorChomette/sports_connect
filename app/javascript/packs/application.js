@@ -21,12 +21,14 @@ import "bootstrap"
 import { typing } from "../plugins/typed";
 import Turbolinks from "turbolinks"
 import { initStarRating } from '../plugins/init_star_rating';
+import { change_banner } from '../plugins/banner_sport';
 
 Turbolinks.start()
 
 document.addEventListener('turbolinks:load', () => {
   typing();
   initStarRating();
+  change_banner();
 })
 
 // import { initFlatpickr } from "../plugins/flatpickr";
