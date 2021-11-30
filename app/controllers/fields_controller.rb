@@ -4,6 +4,9 @@ class FieldsController < ApplicationController
   def index
     @fields = Field.includes(:sports)
     search
+    if params['field_type'].present?
+      @fields = @fields.where(field_type: params['field_type'])
+    end
     @fields = @fields.page(params[:page]).per(5)
 
     @markers = @fields.geocoded.map do |field|
