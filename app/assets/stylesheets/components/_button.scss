@@ -67,3 +67,23 @@
 .star-yellow{
   color:gold;
 }
+
+.btn-delete-friends {
+    background-color: red;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    // margin: 50px;
+    padding: 7px;
+    font-weight: 900;
+}
+
+.btn-accept-friends {
+    background-color: green;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    // margin-left: 50px;
+    padding: 7px;
+    font-weight: 900;
+}
