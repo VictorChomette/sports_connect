@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :presences, only: [:index, :destroy]
 
   # AJAX
-
+  patch '/fav', to: 'favorites#fav'
   get '/fetch_presences', to: 'presences#fetch'
 
 end
