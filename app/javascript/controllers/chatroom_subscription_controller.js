@@ -2,7 +2,6 @@ import { Controller } from "stimulus";
 import consumer from "../channels/consumer";
 
 const toggleChatBox = () => {
-  console.log("teEEEEEERTYUIOIHGFDCFGHJKVCB");
   document.querySelector(".chatbox-btn").addEventListener('click', event => {
     document.querySelector(".chatbox").classList.toggle("d-none");
   })
