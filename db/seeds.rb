@@ -7,6 +7,7 @@ require 'open-uri'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Friendship.destroy_all
 User.destroy_all
 Sport.destroy_all
 Field.destroy_all
