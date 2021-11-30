@@ -91,7 +91,7 @@
           <%= simple_form_for [@field, @review] do |f| %>
             <%= f.input :comment, placeholder: "Add your review here..." %>
             <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-            <%= f.submit class:"btn-navbar" %>
+            <%= f.submit class:"btn btn-navbar" %>
           <% end %>
         </div>
       </div>
@@ -107,7 +107,7 @@
   <%# on apelle la data depuis le controller mapbox.le marker se place sur les adresses.la clef api est importée depuis mapbox %>
 </div>
 
-<div class="chatbox">
+<div class="chatbox d-none">
 <div class="chatroom">
   <div class="messages"
   data-controller="chatroom-subscription"
@@ -118,9 +118,11 @@
   </div>
 </div>
 
-<%= simple_form_for [@field, @chatroom, @message], remote: true do |f| %>
+<%= simple_form_for [@field, @chatroom, @message], class:"bg-white", remote: true do |f| %>
   <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.field.name}" %>
-  <%= f.button :submit, "Send", class: "btn btn-navbar" %>
+  <%= button_tag type: 'submit', class: "btn btn-navbar" do %>
+    <i class="fas fa-paper-plane" aria-hidden="true"></i>
+  <% end %>
 <% end %>
 
 </div>
