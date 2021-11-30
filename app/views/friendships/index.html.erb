@@ -3,6 +3,7 @@
     <h1>Friends</h1>
     <% current_user.friends.each do |friend| %>
       <%= User.find(friend.friend.id).username %>
+      <%= link_to 'Delete', friendship_path(friend), method: :delete %>
     <% end %>
   </div>
   <div>
