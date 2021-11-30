@@ -31,6 +31,10 @@
       </div>
     </div>
 
+
+
+
+
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-navbar text-white mt-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
       Go there!
@@ -55,6 +59,30 @@
     </div>
     <%= link_to "Go Back", fields_path, class: "btn btn-navbar text-white mt-5"  %>
   </div>
+
+   <div id="carouselExampleControls" class="carousel slide w-100 mt-2" data-bs-interval=false>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= cl_image_tag @field.photos.first.key, class: "d-block align-items-center object-fit-cover", width: 1400, height: 400 %>
+        </div>
+        <% photos_array = @field.photos %>
+        <% photos_array.drop(1).each do |photo| %>
+          <div class="carousel-item">
+            <%= cl_image_tag photo.key, class: "d-block object-fit-cover", width: 1400, height: 400 %>
+          </div>
+        <% end %>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+    </div>
 
   <hr class="my-5">
   <div class="row  mb-5">
