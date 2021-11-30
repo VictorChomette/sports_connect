@@ -7,8 +7,10 @@
   </div>
   <div>
     <h1>Friends Requests</h2>
-    <% current_user.friend_requests.each do |friend| %>
-      <%= User.find(friend.friend.id).username %>
+    <% current_user.friend_requests.each do |friendship| %>
+      <%= User.find(friendship.friend.id).username %>
+      <%= link_to 'Decline', friendship_path(friendship), method: :delete %>
+      <%= link_to 'Accept', friendship_path(friendship), method: :patch %>
     <% end %>
   </div>
 </div>

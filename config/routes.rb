@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:create]
     end
   end
-  resources :friendships, only: [:index, :create], path: 'friends'
+  resources :friendships, only: [:index, :create, :destroy, :update], path: 'friends'
 
   resources :favorites, only: [:index]
   resources :reviews, only: [:destroy]
