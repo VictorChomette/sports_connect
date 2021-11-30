@@ -20,16 +20,16 @@ import "controllers"
 import "bootstrap"
 import { typing } from "../plugins/typed";
 import Turbolinks from "turbolinks"
+import { initStarRating } from '../plugins/init_star_rating';
 
 Turbolinks.start()
 
 document.addEventListener('turbolinks:load', () => {
   typing();
+  initStarRating();
 })
 
 // import { initFlatpickr } from "../plugins/flatpickr";
-import { initStarRating } from '../plugins/init_star_rating';
 
-initStarRating();
 
 // initFlatpickr();
