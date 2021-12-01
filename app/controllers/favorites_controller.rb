@@ -42,10 +42,10 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.find_by(field_id: params[:field_id])
     if favorite
       favorite.destroy
-      render json: { status: :destroyed }
+      render json: { status: :destroyed, count: current_user.favorites.count }
     else
       Favorite.create(user: current_user, field: Field.find(params[:field_id]))
-      render json: { status: :created }
+      render json: { status: :created, count: current_user.favorites.count }
     end
   end
 

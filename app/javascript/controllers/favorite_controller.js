@@ -20,6 +20,8 @@ export default class extends Controller {
     const response = await fetch(`/fav?field_id=${event.params.fieldId}`, options)
     const data = await response.json();
 
+    this._updateCount(data.count)
+
     if (data.status === 'created') {
       event.target.classList.add('fas')
       event.target.classList.remove('far')
@@ -27,5 +29,9 @@ export default class extends Controller {
       event.target.classList.remove('fas')
       event.target.classList.add('far')
     }
+  }
+
+  _updateCount(count) {
+    document.querySelector('#fav-count').innerText = `My Favorites (${count})`
   }
 }
