@@ -1,20 +1,42 @@
 .profile-container {
-  width: 400px;
-  margin: 120px auto 120px;
-  background-color: $saumon;
-  padding: 100px 20px 20px;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  // width: 400px;
+  // margin: 120px auto 120px;
+  // background-color: $saumon;
+  // padding: 100px 20px 20px;
+  // border-radius: 6px;
+  // box-shadow: 0 2px 5px rgba(0,0,0,0.075);
   text-align: center;
   position: relative;
+  width: 100%;
+  // padding: 40px 0;
   // min-height: 67vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  border-bottom: 1px solid grey;
+
+  > div {
+    width: 50%;
+    height: 100%;
+  }
+
+  > div:first-child {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    // border-right: 1px solid grey;
+  }
 
   .avatar-profile {
     box-shadow: 0px 0px 0px 7px white;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    margin: 20px;
+    // position: absolute;
+    // top: 0;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
   }
 }
 
@@ -22,7 +44,12 @@
   font-size: 20px;
   color: $bluesecond;
   letter-spacing: 1px;
-  margin-bottom: 25px;
+  // margin-bottom: 25px;
+  text-align: center;
+  padding: 30px 0;
+  &:last-child {
+    border-left: 1px solid grey;
+  }
 }
 .profile-information h2 {
   font-weight: 600;
@@ -36,7 +63,7 @@
     text-transform: uppercase;
     font-size: 14px;
     color: grey;
-    margin-bottom: 35px;
+    margin-bottom: 15px;
 }
 
 .friends {
@@ -50,5 +77,17 @@
     align-items: center;
     justify-content: center;
     margin-right: 40px;
+  }
+}
+
+
+.card-profile {
+  background: #ffd3ad;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 100px auto;
+  padding: 40px;
+  > div:not(.profile-container) {
+    width: 50%;
   }
 }
