@@ -106,3 +106,20 @@
 .pagination .current {
   padding: 8px 16px;
 }
+
+.btn-outline {
+  background-color: transparent;
+  color: $bluesecond;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: $bluesecond;
+  border-radius: 10px;
+  margin: 8px;
+  text-decoration: none;
+
+  &:hover {
+    color: $bluesecond;
+  }
+}
