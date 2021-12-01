@@ -20,12 +20,12 @@
     <div class="friends">
       <% current_user.friend_requests.each do |friendship| %>
         <div class="friend-profile">
-          <% if friendship.friend.photo.present? %>
-            <%= cl_image_tag friendship.friend.photo.key, class:"avatar-profile" %>
+          <% if friendship.user.photo.present? %>
+            <%= cl_image_tag friendship.user.photo.key, class:"avatar-profile" %>
           <%else%>
             <%= image_tag("ribery.jpg", class:"avatar-profile")%>
           <% end %>
-          <%= User.find(friendship.friend.id).username %>
+          <%= User.find(friendship.user.id).username %>
           <div class="d-flex align-items-center justify-content-between w-100">
             <%= link_to 'Accept', friendship_path(friendship), method: :patch, class:"btn-accept-friends" %>
             <%= link_to 'Decline', friendship_path(friendship), method: :delete, class:"btn-delete-friends" %>
