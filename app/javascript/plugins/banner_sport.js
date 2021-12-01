@@ -1,6 +1,7 @@
 const change_banner = () => {
-  const array_sport = ["picture-banner-basket", "picture-banner-ping-pong", "picture-banner-swim","picture-banner-football"];
+  const array_sport = ["picture-banner-basket", "picture-banner-ping-pong", "picture-banner-swim", "picture-banner-football", "picture-banner-football"];
   let i = 0;
+
   if (document.querySelector(".banner-sport")) {
     window.setInterval(function () {
       document.querySelector(".banner-sport").setAttribute('id', array_sport[i]);
