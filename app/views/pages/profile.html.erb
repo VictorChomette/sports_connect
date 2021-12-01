@@ -19,8 +19,8 @@
         <% if @user.photo.present? %>
           <%= cl_image_tag @user.photo.key, class:"avatar-profile" %>
         <%else%>
-          <%= image_tag("ribery.jpg", class:"avatar-profile")%>
-          <% end %>
+          <%= image_tag "field.png", class: "avatar-profile" %>
+        <% end %>
       </div>
       <div class="profile-information">
         <h2><%= @user.first_name %> <%= @user.name %></h2>
@@ -36,6 +36,7 @@
 
       <% unless @user == current_user %>
       <% end %>
+  
 
       <div class="profile-information">
         <h1>Description</h1>
