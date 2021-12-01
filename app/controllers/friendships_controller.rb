@@ -8,7 +8,11 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    @friendship = Friendship.find(params[:id])
+    @friend_user = User.find(params[:id])
+    @friendship = Friendship.where(friend: current_user, user: @friend_user).first
+    unless @friendship
+      @friendship = Friendship.where(friend: @friend_user, user: current_user).first
+    end
     @friendship.destroy
     redirect_to friendships_path
   end

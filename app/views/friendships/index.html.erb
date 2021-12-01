@@ -1,13 +1,13 @@
 <div class= "container d-flex">
-  <div class="w-50" >
+  <div class="w-50 shadow-lg p-3 m-5 bg-white rounded friend-space" >
     <h1>Friends</h1>
-    <div class="friends">
+    <div class="friends ">
       <% current_user.friends.each do |friend| %>
         <div class="friend-profile">
           <% if friend.photo.present? %>
             <%= cl_image_tag friend.photo.key, class:"avatar-profile" %>
           <%else%>
-            <%= image_tag("ribery.jpg", class:"avatar-profile")%>
+            <%= image_tag("field.png", class:"avatar-profile")%>
           <% end %>
             <%= friend.username %>
             <%= link_to 'Delete', friendship_path(friend), method: :delete, class:"btn-delete-friends"%>
@@ -15,7 +15,7 @@
       <% end %>
     </div>
   </div>
-  <div class="w-50">
+  <div class="w-50 shadow-lg p-3 m-5 bg-white rounded friend-space">
     <h1>Friends Requests</h2>
     <div class="friends">
       <% current_user.friend_requests.each do |friendship| %>
@@ -23,7 +23,7 @@
           <% if friendship.user.photo.present? %>
             <%= cl_image_tag friendship.user.photo.key, class:"avatar-profile" %>
           <%else%>
-            <%= image_tag("ribery.jpg", class:"avatar-profile")%>
+            <%= image_tag("field.png", class:"avatar-profile")%>
           <% end %>
           <%= User.find(friendship.user.id).username %>
           <div class="d-flex align-items-center justify-content-between w-100">

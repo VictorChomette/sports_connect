@@ -71,6 +71,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
+    height: mid;
   .friend-profile {
     display: flex;
     flex-direction: column;
@@ -78,6 +79,10 @@
     justify-content: center;
     margin-right: 40px;
   }
+}
+
+.friend-space {
+  height: min-content;
 }
 
 
