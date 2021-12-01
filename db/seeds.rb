@@ -72,6 +72,7 @@ FieldSport.create!(field: field1, sport: natation)
 Review.create!(field: field1, user: user3, rating: 3, comment: "Great field")
 Review.create!(field: field1, user: user2, rating: 4, comment: "Funny moment")
 Review.create!(field: field1, user: user8, rating: 2, comment: "Where is the sun?")
+Presence.create!(date: "2021-12-02 10:00:00 UTC", user: user3, field: field1)
 
 Chatroom.create!(field: field1)
 picturefield1 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/12/14/37/14/a2436222-91c1-40dd-aa87-c31668dc6f33/EmileAnthoine.jpg')
