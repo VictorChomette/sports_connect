@@ -18,7 +18,7 @@
                         },
                         wrapper_html: { class: 'mb-0', data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } },
                         placeholder: 'Where?'%>
-            <%= f.input :perimeter, as: :select,collection: ["5km", "10km", "15km","20km","25km"], label: false, include_blank: "Perimeter " %>
+            <%= f.input :perimeter, as: :select,collection: ["1km", "3km", "5km","10km","15km"], label: false, include_blank: "Perimeter " %>
             <%= button_tag type: 'submit', class: "btn-blue" do %>
               <i class='fas fa-search'></i>
             <% end %>

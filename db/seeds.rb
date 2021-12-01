@@ -69,6 +69,10 @@ FieldSport.create!(field: field1, sport: football)
 FieldSport.create!(field: field1, sport: athletisme)
 FieldSport.create!(field: field1, sport: volleyball)
 FieldSport.create!(field: field1, sport: natation)
+Review.create!(field: field1, user: user3, rating: 3, comment: "Great field")
+Review.create!(field: field1, user: user2, rating: 4, comment: "Funny moment")
+Review.create!(field: field1, user: user8, rating: 2, comment: "Where is the sun?")
+
 Chatroom.create!(field: field1)
 picturefield1 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/12/14/37/14/a2436222-91c1-40dd-aa87-c31668dc6f33/EmileAnthoine.jpg')
 field1.photos.attach(io: picturefield1, filename: 'Stade Emile Anthoine', content_type: 'image/png')
@@ -80,6 +84,9 @@ field1.photos.attach(io: picturefield111, filename: 'Piscine Emile Anthoine', co
 field2 = Field.create!(name: "Parc André-Citroën", address: "2 Rue Cauchy, 75015 Paris", field_type: 1, status: 0, description: "Self-service table tennis available. Possibility to play a game of pétanque in the nearby area.")
 FieldSport.create!(field: field2, sport: petanque)
 FieldSport.create!(field: field2, sport: pingpong)
+Review.create!(field: field2, user: user5, rating: 1, comment: "Dammage on the field" )
+Review.create!(field: field2, user: user2, rating: 4, comment: "Great field" )
+
 Chatroom.create!(field: field2)
 # begin
   picturefield2 = URI.open('https://www.api-site.paris.fr/equipements/2019/12/13/11/57/46/cb099fa8-d248-40da-b4c5-4527a6dc47fe/Parc_Andre_Citroen-27.jpg')
@@ -95,6 +102,9 @@ FieldSport.create!(field: field3, sport: pingpong)
 FieldSport.create!(field: field3, sport: football)
 FieldSport.create!(field: field3, sport: basketball)
 FieldSport.create!(field: field3, sport: athletisme)
+Review.create!(field: field3, user: user7, rating: 3, comment: "Super Suzanne")
+Review.create!(field: field3, user: user1, rating: 5, comment: "Fun game with guys!")
+
 Chatroom.create!(field: field3)
 picturefield3 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/12/14/46/44/44b14f99-0e0e-4872-a193-1b2061fc9004/SuzanneLenglen.jpg')
 picturefield33 = URI.open('https://www.api-site.paris.fr/equipements/2021/03/05/11/15/31/8f12e92d-18ea-405e-ba4a-4728b220c458/4.jpg')
@@ -105,6 +115,9 @@ field3.photos.attach(io: picturefield33, filename: 'Stade Suzanne Lenglen2', con
 field4 = Field.create!(name: "City Stade 15ème", address: "Esplanade Max Guedj, Rue de la Montagne d'Aulas, 75015 Paris", field_type: 1, status: 0, description: "Playground stadium available in the 15th district of Paris.")
 FieldSport.create!(field: field4, sport: basketball)
 FieldSport.create!(field: field4, sport: football)
+Review.create!(field: field4, user: user3, rating: 4, comment: "Great game")
+Review.create!(field: field4, user: user7, rating: 4, comment: "Super dunk!!")
+
 Chatroom.create!(field: field4)
 picturefield4 = URI.open('https://images.unsplash.com/photo-1549831144-f197e398adad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')
 picturefield44 = URI.open('https://images.unsplash.com/photo-1473663065522-33361623fa27?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')
@@ -119,6 +132,8 @@ FieldSport.create!(field: field5, sport: tennis)
 FieldSport.create!(field: field5, sport: basketball)
 FieldSport.create!(field: field5, sport: handball)
 FieldSport.create!(field: field5, sport: volleyball)
+Review.create!(field: field5, user: user1, rating: 1, comment: "Nobody here")
+
 Chatroom.create!(field: field5)
 picturefield5 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/12/15/21/23/83a0b3a6-0242-4b8b-8e56-387f10c04925/LeoLagrange.jpg')
 picturefield55 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/11/09/45/12/95a84289-9860-4cdb-9612-95d9ed00ac65/LeoLagrange.jpg')
@@ -130,6 +145,8 @@ field6 = Field.create!(name: "City Stade - Square Docteur Calmette", address: "7
 FieldSport.create!(field: field6, sport: pingpong)
 FieldSport.create!(field: field6, sport: basketball)
 FieldSport.create!(field: field6, sport: football)
+Review.create!(field: field6, user: user8, rating: 2, comment: "Fuck")
+
 Chatroom.create!(field: field6)
 picturefield6 = URI.open('https://www.api-site.paris.fr/equipements/2018/07/27/13/21/44/6586f29c-ccc4-4d96-ae18-35803c110695/APO_3105.jpg')
 picturefield66 = URI.open('https://www.api-site.paris.fr/equipements/2018/07/27/13/21/44/361468c2-64b4-478f-8b84-64ba7e264fec/APO_3097.jpg')
@@ -140,6 +157,9 @@ field6.photos.attach(io: picturefield66, filename: 'City Stade - Square Docteur 
 field7 = Field.create!(name: "City Stade Passage Dumas", address: "16 Pass. Dumas, 75011 Paris", field_type: 1, status: 2, description: "Located next to the Philippe Auguste sports centre, this playground is perfect for Basketball and Football players.")
 FieldSport.create!(field: field7, sport: basketball)
 FieldSport.create!(field: field7, sport: football)
+Review.create!(field: field7, user: user7, rating: 5, comment: "Incredible")
+Review.create!(field: field7, user: user6, rating: 5, comment: "I play like Jordan")
+
 Chatroom.create!(field: field7)
 picturefield7 = URI.open('https://www.api-site.paris.fr/equipements/2021/06/07/15/45/18/50582874-f79c-4bf9-bbf8-91349eb1e675/vincentaurol2.jpg')
 picturefield77 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/08/15/57/34/0edef739-cf57-4cb2-b6f8-3713987397ae/Rigal.JPG')
@@ -149,6 +169,9 @@ field7.photos.attach(io: picturefield77, filename: 'City Stade Passage Dumas2', 
 
 field8 = Field.create!(name: "Terrain-Petanque", address: "57 Quai de Grenelle Paris, 75015", field_type: 1, status: 0, description: "Three self-service petanque courts are available along the shores of the Seine in the 15th district of Paris.  Don't forget to bring your own material.")
 FieldSport.create!(field: field8, sport: petanque)
+Review.create!(field: field8, user: user6, rating: 3, comment: "Great with my Pastis")
+Review.create!(field: field8, user: user5, rating: 3, comment: "I like balls games!")
+
 Chatroom.create!(field: field8)
 picturefield8 = URI.open('https://www.api-site.paris.fr/equipements/2018/05/09/12/00/55/839ae86c-9dd9-4436-bbb8-fdf34d20384c/232413.jpg')
 picturefield88 = URI.open('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80')
@@ -160,6 +183,8 @@ field9 = Field.create!(name: "Tep Des Amandiers", address: "21 Rue des Cendriers
 FieldSport.create!(field: field9, sport: athletisme)
 FieldSport.create!(field: field9, sport: basketball)
 FieldSport.create!(field: field9, sport: football)
+Review.create!(field: field9, user: user4, rating: 4, comment: "Smoothie run on the field" )
+
 Chatroom.create!(field: field9)
 picturefield9 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/14/11/38/26/c32d5454-68c6-461b-b482-033a78be749c/Amandiers.jpg')
 picturefield99 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/14/14/23/21/a5ed5271-8092-4096-b80a-3dc535ef65c3/Lemercier.jpg')
@@ -187,6 +212,9 @@ field11.photos.attach(io: picturefield111, filename: 'Square Paturle', content_t
 
 field12 = Field.create!(name: "Les Arènes de Lutèce", address: "49 rue Monge, 75005 Paris", field_type: 1, status: 0, description: "Between history and hobbies, enjoy a nice game of pétanque in the heart of the Arènes de Lutèce!")
 FieldSport.create!(field: field12, sport: petanque)
+Review.create!(field: field12, user: user3, rating: 4, comment: "Some shot!")
+Review.create!(field: field12, user: user2, rating: 1, comment: "Some drunk man")
+
 Chatroom.create!(field: field12)
 picturefield12 = URI.open('https://www.api-site.paris.fr/equipements/2021/11/16/14/56/31/4ed8f0ff-2fd8-4490-8c6d-241ff29a1762/74091_-_Square_des_Arenes_de_Lutece_et_Square_Capitan-3.jpg')
 picturefield122 = URI.open('https://www.api-site.paris.fr/equipements/2018/07/27/14/13/48/572650c2-d7be-464f-8edd-a6fa84cb78c8/APO_2632.jpg')
@@ -247,6 +275,8 @@ field18 = Field.create!(name: "Gymnase Charles Mildé ex Saussure", address: "38
 FieldSport.create!(field: field18, sport: basketball)
 FieldSport.create!(field: field18, sport: handball)
 FieldSport.create!(field: field18, sport: volleyball)
+Review.create!(field: field18, user: user8, rating: 5, comment: "Fun games!" )
+
 Chatroom.create!(field: field18)
 picturefield18 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/05/10/36/55/a90c63db-b8bc-4ef0-97dc-5ac9994f3a9f/Saussure.jpg')
 picturefield188 = URI.open('https://images.unsplash.com/photo-1553627220-92f0446b6a5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')
