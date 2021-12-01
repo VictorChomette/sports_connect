@@ -88,3 +88,21 @@
     padding: 7px;
     font-weight: 900;
 }
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+}
+
+.pagination a {
+  color: #005585;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination .current {
+  padding: 8px 16px;
+}
