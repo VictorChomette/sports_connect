@@ -1,4 +1,4 @@
-<div id="message-<%= message.id %>" class="message-wrapper <%= "current_user" if message.user == current_user %>">
+<div id="message-<%= message.id %>" class="message-wrapper <%= "current_user" if message.user == current_user %>" data-sender="<%= sender %>">
   <p class="mb-0"><strong><%= message.user.username %></strong></p>
   <p class="mb-0">
     <small>

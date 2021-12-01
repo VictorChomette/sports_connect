@@ -114,10 +114,11 @@
 <div class="chatroom">
   <div class="messages"
   data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+  data-chatroom-subscription-user-value="<%= current_user.id %>">
     <div data-chatroom-subscription-target="list" class="d-flex flex-column w-100">
       <% @chatroom.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
+        <%= render "messages/message", message: message, sender: message.user.id %>
       <% end %>
     </div>
   </div>
