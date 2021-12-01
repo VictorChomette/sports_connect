@@ -32,9 +32,6 @@
     </div>
 
 
-
-
-
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-navbar text-white mt-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
       Go there!
@@ -81,7 +78,6 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-
     </div>
 
   <hr class="my-5">
@@ -117,18 +113,20 @@
   <div class="messages"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-    <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-    <% end %>
+    <div data-chatroom-subscription-target="list">
+      <% @chatroom.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
   </div>
+  <%= simple_form_for [@field, @chatroom, @message], class:"bg-white", remote: true do |f| %>
+    <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.field.name}" %>
+    <%= button_tag type: 'submit', class: "btn btn-navbar" do %>
+      <i class="fas fa-paper-plane" aria-hidden="true"></i>
+    <% end %>
+  <% end %>
 </div>
 
-<%= simple_form_for [@field, @chatroom, @message], class:"bg-white", remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.field.name}" %>
-  <%= button_tag type: 'submit', class: "btn btn-navbar" do %>
-    <i class="fas fa-paper-plane" aria-hidden="true"></i>
-  <% end %>
-<% end %>
 
 </div>
 <div class="chatbox-btn">
