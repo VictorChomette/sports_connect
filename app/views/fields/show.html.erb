@@ -98,8 +98,8 @@
         <div class="bg-white rounded">
           <h3>Add your review</h3>
           <%= simple_form_for [@field, @review], data: { reviews_target: 'form', action: 'submit->reviews#send' } do |f| %>
-            <%= f.input :comment, placeholder: "Add your review here..." %>
-            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+            <%= f.input :comment, placeholder: "Add your review here...", input_html: { data: { reviews_target: 'comment' } } %>
+            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: { data: { reviews_target: 'stars' } } %>
             <%= f.submit class:"btn btn-navbar" %>
           <% end %>
         </div>
