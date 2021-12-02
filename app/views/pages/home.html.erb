@@ -1,29 +1,31 @@
 <div class="homepage">
   <div class="banner d-flex justify-content-between py-3">
-    <div class="w-100 container d-flex flex-column justify-content-center banner-sport" id="picture-banner-basket">
-      <div class="w-50">
-        <h1 class='element'></h1>
-        <p>Sports Connect shows you every available fields near you, and how many players by time</p>
-      </div>
-      <%= simple_form_for :query, url: fields_path, method: :get do |f| %>
-        <div class="inner-banner">
-            <%# Création d'une search bar options_for_select va chercher la variable @sports dans le page controller %>
-            <%= f.select :sport, options_for_select(@sports), label: false, include_blank: "Select a sport" %>
-            <%= f.input :address,label: false,
-                        input_html: {
-                          data: {
-                            geocoder_target: "address"
-                          },
-                          class: "d-none"
-                        },
-                        wrapper_html: { class: 'mb-0', data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } },
-                        placeholder: 'Where?'%>
-            <%= f.input :perimeter, as: :select,collection: ["1km", "3km", "5km","10km","15km"], label: false, include_blank: "Perimeter " %>
-            <%= button_tag type: 'submit', class: "btn-blue" do %>
-              <i class='fas fa-search'></i>
-            <% end %>
+    <div class="container d-flex flex-column justify-content-center banner-sport" id="picture-banner-basket">
+      <div>
+        <div class="w-50">
+          <h1 class='element'></h1>
+          <p>Sports Connect shows you every available fields near you, and how many players by time</p>
         </div>
-      <% end %>
+        <%= simple_form_for :query, url: fields_path, method: :get do |f| %>
+          <div class="inner-banner">
+              <%# Création d'une search bar options_for_select va chercher la variable @sports dans le page controller %>
+              <%= f.select :sport, options_for_select(@sports), label: false, include_blank: "Select a sport" %>
+              <%= f.input :address,label: false,
+                          input_html: {
+                            data: {
+                              geocoder_target: "address"
+                            },
+                            class: "d-none"
+                          },
+                          wrapper_html: { class: 'mb-0', data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } },
+                          placeholder: 'Where?'%>
+              <%= f.input :perimeter, as: :select,collection: ["1km", "3km", "5km","10km","15km"], label: false, include_blank: "Perimeter " %>
+              <%= button_tag type: 'submit', class: "btn-blue" do %>
+                <i class='fas fa-search'></i>
+              <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 
