@@ -27,6 +27,8 @@ FavoriteSport.create!(user: user1, sport: football)
 FavoriteSport.create!(user: user1, sport: handball)
 FavoriteSport.create!(user: user1, sport: athletisme)
 FavoriteSport.create!(user: user1, sport: natation)
+pictureuser1 = URI.open('https://i.dailymail.co.uk/1s/2020/06/07/15/29328576-8388727-image-m-38_1591541792360.jpg')
+user1.photo.attach(io: pictureuser1, filename: 'Photo MJ', content_type: 'image/png')
 
 user2 = User.create!(email: "test2@gmail.com", password: "123456", username: "E_Ngapeth", age: 28, name: "Ngapeth", first_name: "Earvin", description:"I've been in Paris for several years now. I like to play volleyball with my friends but also searching for new friends in order to improve my skills ! Also available to play some petanques. Moreover, i would like to start playing handball during the weekend.")
 FavoriteSport.create!(user: user2, sport: volleyball)
