@@ -2,20 +2,24 @@
   <div class="d-flex justify-content-between align-items-start">
     <div class="d-flex flex-column pt-5 bg-white">
      <div class="d-flex align-items-center">
-      <h1><%= @field.name %></h1>
-      <h4 class="mb-0 ms-2"><%= @field.address %></h4>
-      <div class="d-flex justify-content-between align-items-center px-3 pb-2" style="margin-left: auto;">
-        <% if current_user.fields.uniq.include? @field %>
-          <%= link_to field_favorite_path(field_id: @field, id: current_user.favorites.find_by(field_id: @field.id).id), method: :delete, class:'btn-fav' do %>
-            <i class="fas fa-heart" aria-hidden="true"></i>
-          <% end %>
-        <% else %>
-          <%= simple_form_for [@field, Favorite.new] do |f| %>
-            <%= button_tag type: 'submit', class: "btn-fav" do %>
-              <i class="far fa-heart" aria-hidden="true"></i>
+      <div class="d-flex flex-column">
+        <div class="d-flex">
+          <h1><%= @field.name %></h1>
+          <div class="d-flex justify-content-between align-items-center px-3 pb-2" style="margin-left: auto;">
+            <% if current_user.fields.uniq.include? @field %>
+              <%= link_to field_favorite_path(field_id: @field, id: current_user.favorites.find_by(field_id: @field.id).id), method: :delete, class:'btn-fav' do %>
+                <i class="fas fa-heart" aria-hidden="true"></i>
+              <% end %>
+            <% else %>
+              <%= simple_form_for [@field, Favorite.new] do |f| %>
+                <%= button_tag type: 'submit', class: "btn-fav" do %>
+                  <i class="far fa-heart" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
             <% end %>
-          <% end %>
-        <% end %>
+          </div>
+        </div>
+        <h4 class="mb-0"><%= @field.address %></h4>
       </div>
     </div>
       <p><%= @field.description %></p>
@@ -51,7 +55,9 @@
             <%= simple_form_for [@field, Presence.new] do |f| %>
               <%= f.input :day, label: "Days:", as: :string, required: false, input_html: { data: { flatpickr_target: 'input' } } %>
               <%= render 'fields/presences_by_hour', field: @field %>
-              <%= f.button :submit, "Go", class: "btn btn-navbar" %>
+              <div class="d-flex justify-content-center">
+                <%= f.button :submit, "Go", class: "btn btn-navbar px-5" %>
+              </div>
             <% end %>
           </div>
         </div>
@@ -132,5 +138,6 @@
 
 </div>
 <div class="chatbox-btn">
-  <i class="fas fa-comments"></i>
+  <button class="btn btn-saumon text-black fw-bold p-2">Chat</button>
+  <%# <i class="fas fa-comments"></i> %>
 </div>
