@@ -223,6 +223,11 @@ field10.photos.attach(io: picturefield10, filename: 'Terrain de sport Duperré',
 field10.photos.attach(io: picturefield100, filename: 'Terrain de sport Duperré2', content_type: 'image/png')
 field10.photos.attach(io: picturefield1000, filename: 'Terrain de sport Duperré3', content_type: 'image/png')
 field10.photos.attach(io: picturefield10000, filename: 'Terrain de sport Duperré4', content_type: 'image/png')
+Review.create!(field: field10, user: user7, rating: 5, comment: "Great field for good players, many people watching!!")
+Review.create!(field: field10, user: user5, rating: 5, comment: "Beautiful colors, pretty rare for a park in Paris")
+Review.create!(field: field10, user: user3, rating: 3, comment: "Sick field, but don't come sunday its packkked!")
+
+
 
 Presence.create!(date: "2021-12-02 12:00:00 UTC", user: user2, field: field10)
 Presence.create!(date: "2021-12-02 15:00:00 UTC", user: user3, field: field10)
