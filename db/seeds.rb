@@ -100,12 +100,25 @@ Review.create!(field: field2, user: user2, rating: 4, comment: "Great field" )
 
 Chatroom.create!(field: field2)
 # begin
-  picturefield2 = URI.open('https://www.api-site.paris.fr/equipements/2019/12/13/11/57/46/cb099fa8-d248-40da-b4c5-4527a6dc47fe/Parc_Andre_Citroen-27.jpg')
-  picturefield22 = URI.open('https://www.api-site.paris.fr/equipements/2021/11/10/11/27/05/f3baab67-92b2-40ff-bf7e-70ffdd7bd2bc/86037_-_Serre_du_Parc_Andre-Citroen-2.jpg')
+picturefield2 = URI.open('https://www.api-site.paris.fr/equipements/2019/12/13/11/57/46/cb099fa8-d248-40da-b4c5-4527a6dc47fe/Parc_Andre_Citroen-27.jpg')
+picturefield22 = URI.open('https://www.api-site.paris.fr/equipements/2021/11/10/11/27/05/f3baab67-92b2-40ff-bf7e-70ffdd7bd2bc/86037_-_Serre_du_Parc_Andre-Citroen-2.jpg')
 # rescue
 # end
 field2.photos.attach(io: picturefield2, filename: 'Parc André-Citroën', content_type: 'image/png')
 field2.photos.attach(io: picturefield22, filename: 'Parc André-Citroën2', content_type: 'image/png')
+
+field7 = Field.create!(name: "City Stade Passage Dumas", address: "16 Pass. Dumas, 75011 Paris", field_type: 1, status: 2, description: "Located next to the Philippe Auguste sports centre, this playground is perfect for Basketball and Football players.")
+FieldSport.create!(field: field7, sport: basketball)
+FieldSport.create!(field: field7, sport: football)
+Review.create!(field: field7, user: user7, rating: 5, comment: "Incredible")
+Review.create!(field: field7, user: user6, rating: 5, comment: "I play like Jordan")
+
+Chatroom.create!(field: field7)
+picturefield7 = URI.open('https://www.api-site.paris.fr/equipements/2021/06/07/15/45/18/50582874-f79c-4bf9-bbf8-91349eb1e675/vincentaurol2.jpg')
+picturefield77 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/08/15/57/34/0edef739-cf57-4cb2-b6f8-3713987397ae/Rigal.JPG')
+
+field7.photos.attach(io: picturefield7, filename: 'City Stade Passage Dumas', content_type: 'image/png')
+field7.photos.attach(io: picturefield77, filename: 'City Stade Passage Dumas2', content_type: 'image/png')
 
 field3 = Field.create!(name: "Stade Suzanne Lenglen", address: "4 All. de la Bertelotte, 75015 Paris", field_type: 2, status: 0, description: "Sports complex with a number of football and tennis courts and a city for playing basketball. Indoor and outdoor tennis courts with different types of surfaces.")
 FieldSport.create!(field: field3, sport: tennis)
@@ -165,18 +178,6 @@ picturefield66 = URI.open('https://www.api-site.paris.fr/equipements/2018/07/27/
 field6.photos.attach(io: picturefield6, filename: 'City Stade - Square Docteur Calmette', content_type: 'image/png')
 field6.photos.attach(io: picturefield66, filename: 'City Stade - Square Docteur Calmette2', content_type: 'image/png')
 
-field7 = Field.create!(name: "City Stade Passage Dumas", address: "16 Pass. Dumas, 75011 Paris", field_type: 1, status: 2, description: "Located next to the Philippe Auguste sports centre, this playground is perfect for Basketball and Football players.")
-FieldSport.create!(field: field7, sport: basketball)
-FieldSport.create!(field: field7, sport: football)
-Review.create!(field: field7, user: user7, rating: 5, comment: "Incredible")
-Review.create!(field: field7, user: user6, rating: 5, comment: "I play like Jordan")
-
-Chatroom.create!(field: field7)
-picturefield7 = URI.open('https://www.api-site.paris.fr/equipements/2021/06/07/15/45/18/50582874-f79c-4bf9-bbf8-91349eb1e675/vincentaurol2.jpg')
-picturefield77 = URI.open('https://www.api-site.paris.fr/equipements/2021/10/08/15/57/34/0edef739-cf57-4cb2-b6f8-3713987397ae/Rigal.JPG')
-
-field7.photos.attach(io: picturefield7, filename: 'City Stade Passage Dumas', content_type: 'image/png')
-field7.photos.attach(io: picturefield77, filename: 'City Stade Passage Dumas2', content_type: 'image/png')
 
 field8 = Field.create!(name: "Terrain-Petanque", address: "57 Quai de Grenelle Paris, 75015", field_type: 1, status: 0, description: "Three self-service petanque courts are available along the shores of the Seine in the 15th district of Paris.  Don't forget to bring your own material.")
 FieldSport.create!(field: field8, sport: petanque)

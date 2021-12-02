@@ -1,4 +1,4 @@
-<% fields.each do |field| %>
+<% fields.order(:id).each do |field| %>
   <div class="card-field my-3">
     <% if field.photos.count > 0 %>
       <div id="carousel-field-<%= field.id %>" class="carousel slide" data-bs-interval=false>
