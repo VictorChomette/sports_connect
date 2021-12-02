@@ -31,7 +31,13 @@
         <% else %>
           <span class="badge rounded-pill bg-warning text-dark me-2"><%= @field.status.capitalize %></span>
         <% end %>
-        <span class="badge rounded-pill bg-secondary text-white"><%= @field.field_type %></span>
+        <% if @field.field_type_indoor? %>
+          <span class="badge rounded-pill bg-secondary text-white">Indoor</span>
+        <% elsif @field.field_type_outdoor? %>
+          <span class="badge rounded-pill bg-secondary text-white">Outdoor</span>
+        <% else %>
+          <span class="badge rounded-pill bg-secondary text-white">Indoor & Outdoor</span>
+        <% end %>
       </div>
     </div>
 
