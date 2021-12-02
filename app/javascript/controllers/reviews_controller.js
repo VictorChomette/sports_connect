@@ -1,13 +1,14 @@
 import { Controller } from "stimulus";
 import { csrfToken } from "@rails/ujs";
+import "jquery-bar-rating";
+import $ from 'jquery';
 
 export default class extends Controller {
-  static targets = ['list', 'form'];
+  static targets = ['list', 'form', 'comment', 'stars'];
 
   connect() {
-    console.log(this.element);
-    console.log(this.listTarget);
-    console.log(this.formTarget);
+    this._init_stars()
+    console.log(this.element)
   }
 
   async send(event) {
@@ -22,5 +23,13 @@ export default class extends Controller {
     const response = await fetch(this.formTarget.action, options)
     const data = await response.json();
     this.listTarget.innerHTML = data.html
+    this.commentTarget.value = '';
+
+    // this._init_stars()
+    this.rating.barrating('clear');
+  }
+
+  _init_stars() {
+    this.rating = $('#review_rating').barrating({theme: 'css-stars' });
   }
 }
