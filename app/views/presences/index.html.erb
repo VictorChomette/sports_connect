@@ -9,7 +9,7 @@
             </div>
           <div class="card-body">
             <h4 class="card-title"> <%= presence.field.name %> </h4>
-            <p class="card-text"><strong>Expecting you on </strong> <%= presence.date %> </p>
+            <p class="card-text"><strong>Expecting you on </strong> <%= presence.date.strftime("%A %-d %B") %> </p>
             <p class="card-text"><strong>at </strong> <%= presence.field.address %> </p>
           </div>
         <%# </div> %>
