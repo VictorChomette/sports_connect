@@ -34,6 +34,15 @@
   text-decoration: none;
 }
 
+.btn-saumon {
+  background-color: $saumon;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 10px;
+  margin: 8px;
+  text-decoration: none;
+}
+
 .btn-navbar:hover {
   color: white;
   background-color: $bluefonce;
