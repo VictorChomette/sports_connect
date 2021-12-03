@@ -31,6 +31,8 @@ document.addEventListener('turbolinks:load', () => {
   change_banner();
 })
 
+
+
 // import { initFlatpickr } from "../plugins/flatpickr";
 
 

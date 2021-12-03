@@ -3,7 +3,6 @@ class FieldsController < ApplicationController
 
   def index
     @fields = Field.includes(:sports)
-    search
     if params['field_type'].present?
       @fields = @fields.where(field_type: params['field_type'])
     end
@@ -18,8 +17,10 @@ class FieldsController < ApplicationController
       }
     end
 
-    if params.dig(:query, :localisation).present?
-      @address = params.dig(:query, :localisation)
+    if params.dig(:query, :address).present?
+      session[:address] = params.dig(:query, :address)
+      @markers << geocode_location
+    elsif session[:address].present?
       @markers << geocode_location
     end
   end
@@ -41,7 +42,7 @@ class FieldsController < ApplicationController
       info_window: render_to_string(partial: "info_window_fields", locals: { field: @field }),
       image_url: helpers.asset_url("field.png")
     }]
-    if params.dig(:query, :localisation).present?
+    if session[:address].present?
       @markers << geocode_location
     end
 
@@ -51,7 +52,7 @@ class FieldsController < ApplicationController
   private
 
   def geocode_location
-    coordinates = Geocoder.search(params.dig(:query, :localisation))
+    coordinates = Geocoder.search( session[:address] )
                           .first.data.dig('features')
                           .first.dig('geometry', 'coordinates')
     {
