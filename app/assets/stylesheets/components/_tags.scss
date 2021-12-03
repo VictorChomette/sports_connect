@@ -1,6 +1,7 @@
 .tag-item {
   display: inline-block;
   position: relative;
+  margin-bottom: 3px;
 }
 
 .participants {
@@ -12,8 +13,8 @@
   border-width: 1px;
   border-radius: 50%;
   border-color: black;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   text-align: center;
   background-color: white;
 }
@@ -26,11 +27,11 @@
 .tag-selector + label {
   cursor: pointer;
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   border-radius: 50rem;
   padding: 0.1rem 0.5rem;
   background-color: $saumon;
-  color: $orange;
+  color: black;
   border: 1px solid $saumon;
   margin-right: 0.6rem;
   margin-bottom: 0.4rem;
@@ -43,9 +44,11 @@
 }
 
 .slot {
-  width: 60px;
+  width: 64px;
+  height: 25px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .flatpickr-calendar {
@@ -58,5 +61,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
 
+.col-form-label {
+  margin-bottom: 7px;
 }
