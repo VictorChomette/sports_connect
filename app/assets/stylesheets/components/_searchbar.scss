@@ -1,0 +1,16 @@
+div#select-home {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: "\f0d7";
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+  }
+
+  #query_sport {
+    appearance: none;
+  }
+}
