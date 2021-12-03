@@ -22,8 +22,10 @@ export default class extends Controller {
       .then((data) => {
         if (data.inserted_message) {
           this.messagesTarget.insertAdjacentHTML("beforeend", data.inserted_message);
+          // console.log('io')
+          document.querySelector("#message_content").value = "";
         }
-        this.formTarget.outerHTML = data.form;
+        // document.querySelector(".message-wrapper:last-child").scrollIntoView();
       });
   }
 }
