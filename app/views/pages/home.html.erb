@@ -9,7 +9,9 @@
         <%= simple_form_for :query, url: fields_path, method: :get do |f| %>
           <div class="inner-banner">
               <%# Création d'une search bar options_for_select va chercher la variable @sports dans le page controller %>
-              <%= f.select :sport, options_for_select(@sports), label: false, include_blank: "Select a sport" %>
+              <div id="select-home">
+                <%= f.select :sport, options_for_select(@sports), label: false, include_blank: "Select a sport" %>
+              </div>
               <%= f.input :address,label: false,
                           input_html: {
                             data: {
