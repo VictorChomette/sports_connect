@@ -1,0 +1,14 @@
+.flatpickr-calendar {
+  width: 66.5%;
+
+  .flatpickr-rContainer,
+  .flatpickr-days {
+    width: 100%;
+  }
+
+  .dayContainer {
+    width: 100%;
+    max-width: 100%;
+    gap: 4px;
+  }
+}
